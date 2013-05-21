@@ -7,12 +7,13 @@ function Recruiter(name, id) {
         return true;
     }
     
-    function jobsPosted() {
-        recruiterJobs.jobsPosted(id);
+    function posted() {
+        console.log(recruiterJobs.postedByRecruiter(id));
     }
 
     return {
-        post : post
+        post : post,
+        posted : posted
     };
 }
 

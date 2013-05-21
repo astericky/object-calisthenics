@@ -12,25 +12,23 @@ function RecruiterJobs() {
         return true;
     }
 
-    function jobsPostedByRecruiter(id) {
+    function postedByRecruiter(id) {
         var jobs = [];
         for (var i = 0; i < numberOfJobs; i++) {
-            if (id === postedJobs[i].recruiterId) {
-                jobs.push(postedJobs[i]);
-            }
+            addJob(id, i, jobs);
         }
         return jobs;
     }
 
-    function addJob(id, index) {
+    function addJob(id, index, jobs) {
         if (id === postedJobs[index].recruiterId) {
-            
+            jobs.push(postedJobs[index]);
         }
     }
 
     return {
         post : post,
-        jobsPostedByRecruiter : jobsPostedByRecuiter
+        postedByRecruiter : postedByRecruiter
     };
 }
 
