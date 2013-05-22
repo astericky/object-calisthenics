@@ -7,12 +7,12 @@ function RecruiterJobs() {
     }
 
     function postedBy(recruiter) {
-        return select(selectByRecruiter(recruiter));
+        select(selectByRecruiter(recruiter)).forEach(displayJob);
     }
 
     function selectByRecruiter(recruiter) {
         return function(job) {
-            job.postedBy(recruiter);
+            return job.postedBy(recruiter);
         };
     }
 
@@ -21,13 +21,15 @@ function RecruiterJobs() {
         var length = postedJobs.length;
 
         for (var i = 0; i < length; i++) {
-            console.log(fn(postedJobs[i]));
-            if (fn(postedJobs[i]) === true) {
-                console.log("Chris' Job!");
+            if (fn(postedJobs[i])) {
                 jobs.push(postedJobs[i]);
             }
         }
-        console.log(jobs);
+        return (jobs);
+    }
+
+    function displayJob(job) {
+        job.displayJob();
     }
 
     return {

@@ -1,7 +1,7 @@
 (function() {
     var recruiterJobs = new RecruiterJobs();
-    var recruiter = new Recruiter('Chris', '1');
-    var recruiterToo = new Recruiter('Sean', '2');
+    var recruiter = new Recruiter(new Name('Chris'), new Id(1));
+    var recruiterToo = new Recruiter(new Name('Sean'), new Id(2));
 
     recruiterJobs.post('Web Developer', recruiter);
     recruiterJobs.post('Front-End Developer', recruiterToo);

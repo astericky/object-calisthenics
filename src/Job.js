@@ -3,8 +3,6 @@ function Job(title, recruiter) {
     var recruiter;
 
     function postedBy(jobRecruiter) {
-        console.log(recruiter);
-        console.log(jobRecruiter === recruiter);
         return (jobRecruiter === recruiter);
     }
 
