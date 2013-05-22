@@ -2,13 +2,17 @@ function Recruiter(name, id) {
     var name = name;
     var id = id;
 
-    function post(job) {
-        recruiterJobs.post(job, id);
+    function post(job, recruiter) {
+        recruiterJobs.post(job, recruiter);
         return true;
     }
     
     function posted() {
         console.log(recruiterJobs.postedByRecruiter(id));
+    }
+
+    function displayRecruiter() {
+        console.log(name);
     }
 
     return {
@@ -17,5 +21,4 @@ function Recruiter(name, id) {
     };
 }
 
-var recruiter = new Recruiter('Chris', '1');
-var recruiter2 = new Recruiter('Sean', '2');
+
