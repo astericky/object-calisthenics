@@ -7,7 +7,6 @@ function RecruiterJobs() {
     }
 
     function postedBy(recruiter) {
-        //select(selectByRecruiter(recruiter)).forEach(display);
         return select(selectByRecruiter(recruiter));
     }
 

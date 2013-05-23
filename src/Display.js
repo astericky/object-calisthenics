@@ -1,11 +1,11 @@
 function Display() {
 
-    function display(info) {
-        console.log(info);
+    function display(data) {
+        console.log(data);
     }
 
-    function test(info) {
-        return info;
+    function test(data) {
+        return data;
     }
 
     return {

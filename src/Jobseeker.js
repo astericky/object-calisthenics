@@ -1,0 +1,2 @@
+function Jobseeker(name, id) {
+}
