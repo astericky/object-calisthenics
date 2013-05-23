@@ -1,11 +1,11 @@
 function Id(id) {
     var id = id;
 
-    function display(IdDisplay) {
-        IdDisplay.displayOn(id);
+    function represent() {
+       return id;  
     }
 
     return {
-        display : display
+        represent : represent
     };
 }

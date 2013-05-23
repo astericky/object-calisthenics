@@ -1,11 +1,13 @@
 function Name(name) {
     var name = name;
 
-    function display(nameDisplay) {
-       nameDisplay.display(name);   
+    function represent() {
+       return name;  
     }
 
     return {
-        display : display
+        represent : represent
     };
 }
+
+

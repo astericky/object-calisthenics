@@ -6,12 +6,12 @@ function Job(title, recruiter) {
         return (jobRecruiter === recruiter);
     }
 
-    function displayJob() {
-        console.log(title);
+    function displayOn(aDisplay) {
+        aDisplay.display(title);
     }
 
     return {
         postedBy : postedBy,
-        displayJob : displayJob
+        displayOn : displayOn
     };
 }

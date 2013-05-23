@@ -7,7 +7,7 @@ function RecruiterJobs() {
     }
 
     function postedBy(recruiter) {
-        select(selectByRecruiter(recruiter)).forEach(displayJob);
+        select(selectByRecruiter(recruiter)).forEach(display);
     }
 
     function selectByRecruiter(recruiter) {
@@ -28,8 +28,9 @@ function RecruiterJobs() {
         return (jobs);
     }
 
-    function displayJob(job) {
-        job.displayJob();
+    function display(job) {
+        var aDisplay = new Display();
+        job.displayOn(aDisplay);
     }
 
     return {
