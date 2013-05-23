@@ -7,7 +7,11 @@
     recruiterJobs.post('Web Developer', recruiter);
     recruiterJobs.post('Front-End Developer', recruiterToo);
     recruiterJobs.post('Software Engineer', recruiter);
+   
+    
 
-    recruiter.displayOn(aDisplay);
-    recruiterJobs.postedBy(recruiter);
+    console.log(recruiter.displayOn(aDisplay));
+    //console.log(recruiterJobs.postedBy(recruiter));
+    console.log(recruiterJobs.postedBy(recruiter)[0].represent(aDisplay));
+
 })();

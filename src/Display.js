@@ -4,7 +4,12 @@ function Display() {
         console.log(info);
     }
 
+    function test(info) {
+        return info;
+    }
+
     return {
-        display : display
+        display : display,
+        test : test
     }
 }

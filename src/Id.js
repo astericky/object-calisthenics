@@ -1,8 +1,8 @@
 function Id(id) {
     var id = id;
 
-    function represent() {
-       return id;  
+    function represent(display) {
+        return display.test(id);
     }
 
     return {

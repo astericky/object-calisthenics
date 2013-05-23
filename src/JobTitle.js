@@ -2,7 +2,7 @@ function JobTitle() {
     var jobTitle = jobTitle;
     
     function represent() {
-       return jobTitle;  
+        return display.test(id);
     }
 
     return {

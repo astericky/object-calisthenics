@@ -1,8 +1,8 @@
 function Name(name) {
     var name = name;
-
-    function represent() {
-       return name;  
+    
+    function represent(display) {
+        return display.test(name);  
     }
 
     return {

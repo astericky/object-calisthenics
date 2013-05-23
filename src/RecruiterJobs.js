@@ -7,7 +7,8 @@ function RecruiterJobs() {
     }
 
     function postedBy(recruiter) {
-        select(selectByRecruiter(recruiter)).forEach(display);
+        //select(selectByRecruiter(recruiter)).forEach(display);
+        return select(selectByRecruiter(recruiter));
     }
 
     function selectByRecruiter(recruiter) {
@@ -25,12 +26,12 @@ function RecruiterJobs() {
                 jobs.push(postedJobs[i]);
             }
         }
-        return (jobs);
+        return jobs;
     }
 
     function display(job) {
         var aDisplay = new Display();
-        job.displayOn(aDisplay);
+        return job.represent(aDisplay);
     }
 
     return {
