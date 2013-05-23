@@ -1,11 +1,11 @@
 function Id(id) {
     var id = id;
 
-    function displayId(display) {
-        display(id);
+    function display(IdDisplay) {
+        IdDisplay.displayOn(id);
     }
 
     return {
-        displayId : displayId
+        display : display
     };
 }

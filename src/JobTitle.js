@@ -1,11 +1,11 @@
 function JobTitle() {
     var jobTitle = jobTitle;
     
-    function displayJobTitle(display) {
-        display(jobTitle);
+    function display(jobTitleDisplay) {
+        jobTitleDisplay.displayOn(jobTitle);
     }
 
     return {
-        displayJobTitle : displayJobTitle
+        display : display
     };
 }

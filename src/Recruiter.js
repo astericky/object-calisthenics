@@ -2,13 +2,12 @@ function Recruiter(name, id) {
     var name = name;
     var id = id;
     
-    function displayRecruiter() {
-        name.displayName();
+    function displayOn(aDisplay) {
+        name.display(aDisplay);
     }
 
     return {
-        post : post
+        displayOn : displayOn
     };
 }
-
 
