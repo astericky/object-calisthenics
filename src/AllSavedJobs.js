@@ -1,0 +1,3 @@
+function AllSavedJobs() {
+    var savedJobs = [];
+}

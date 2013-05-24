@@ -1,17 +1,14 @@
-function Job(title, recruiter) {
-    var title;
-    var recruiter;
+function Job(title, id) {
 
-    function postedBy(jobRecruiter) {
-        return (jobRecruiter === recruiter);
-    }
-
-    function represent(display) {
-        return display.test(title);
+    function displayOn(aDisplay) {
+        var recruiter = [
+            'ID: ', id.represent(aDisplay),
+            ' / Title: ', title.represent(aDisplay)
+        ].join('');
+        return aDisplay.test(recruiter);
     }
 
     return {
-        postedBy : postedBy,
-        represent : represent
+        displayOn : displayOn
     };
 }

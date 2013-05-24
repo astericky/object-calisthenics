@@ -1,6 +1,4 @@
 function Recruiter(name, id) {
-    var name = name;
-    var id = id;
     
     function displayOn(aDisplay) {
         var recruiter = [
