@@ -26,3 +26,32 @@ describe('a Recruiter', function() {
     
 });
 
+
+describe('a Jobseeker', function() {
+    it('exists', function() {
+    });
+
+    it('has a name and id', function() {
+    });
+
+    it('can save jobs', function() {
+    });
+
+    it('can apply to ATS jobs posted by recruiters', function() {
+    });
+    
+    it('can apply to JReq jobs if they have a resume', function() {
+    });
+
+    it('cannot apply to JReq jobs with someone else\'s resume', function() {
+    });
+
+    it('can have more than one resume', function() {
+    });
+    
+    it('can see a listing of jobs for which they applied', function() {
+    });
+
+
+});
+

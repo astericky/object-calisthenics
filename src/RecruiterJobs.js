@@ -1,9 +1,8 @@
 function RecruiterJobs() {
-    var postedJobs = []; // an array of Job objects ex. { title: 'developer', id: 1, recruiterId: 1 )
+    var postedJobs = []; 
 
     function post(jobTitle, recruiter) {
         postedJobs.push(new Job(jobTitle, recruiter));
-        return true;
     }
 
     function postedBy(recruiter) {
@@ -16,7 +15,7 @@ function RecruiterJobs() {
         };
     }
 
-    function select(fn) { // select takes a function that takes a job as an arg
+    function select(fn) { // make this more clear
         var jobs = [];
         var length = postedJobs.length;
 

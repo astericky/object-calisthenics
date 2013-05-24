@@ -1,0 +1,5 @@
+function JobseekerJobs() {
+    var savedJobs = [];
+
+
+}
