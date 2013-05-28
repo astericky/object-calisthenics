@@ -48,8 +48,17 @@
     //console.log(resume.displayOn(aDisplay));
     //console.log(jobseeker.displayOn(aDisplay));
     //jobseekerResume.displayOn(aDisplay);
+    //console.log(allPostedResumes.postedBy(jobseeker)[0].displayOn(aDisplay));
 
-    console.log(allPostedResumes.postedBy(jobseeker)[0].displayOn(aDisplay));
+    
+    // Saved Jobs
+    var savedJob = new SavedJob(jobseeker, recruiterJob);
+
+
+
+    console.log(savedJob.displayOn(aDisplay));
+
+
 
 
 })();

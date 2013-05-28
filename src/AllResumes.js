@@ -27,11 +27,6 @@ function AllResumes() {
         return resumes;
     }
 
-    function display(resume) {
-        var aDisplay = new Display();
-        return resume.displayOn(aDisplay);
-    }
-
     return {
         post : post,
         postedBy : postedBy
