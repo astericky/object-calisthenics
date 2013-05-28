@@ -29,7 +29,7 @@ function AllPostedJobs() {
 
     function display(job) {
         var aDisplay = new Display();
-        return job.represent(aDisplay);
+        return job.displayOn(aDisplay);
     }
 
     return {

@@ -29,10 +29,27 @@
     var resume = new Resume(new Id(100));
     var jobseeker = new Jobseeker(new Name('JoeC'), new Id(2));
     var jobseekerResume = new JobseekerResume(jobseeker, resume);
+    var allPostedResumes = new AllResumes();
+
+    // Create Resumes
+    var resume = new Resume(new Id(200)); 
+    var resume1 = new Resume(new Id(201)); 
+    var resume2 = new Resume(new Id(202)); 
+
+    // Create Jobseeker Resumes
+    var jobseekerResume = new JobseekerResume(jobseeker, resume);
+    var jobseekerResume1 = new JobseekerResume(jobseeker, resume1);
+    var jobseekerResume2 = new JobseekerResume(jobseeker, resume2);
+
+    allPostedResumes.post(jobseekerResume);
+    allPostedResumes.post(jobseekerResume1);
+    allPostedResumes.post(jobseekerResume2);
     
     //console.log(resume.displayOn(aDisplay));
     //console.log(jobseeker.displayOn(aDisplay));
-    jobseekerResume.displayOn(aDisplay);
+    //jobseekerResume.displayOn(aDisplay);
+
+    console.log(allPostedResumes.postedBy(jobseeker)[0].displayOn(aDisplay));
 
 
 })();

@@ -1,4 +1,9 @@
 function JobseekerResume(jobseeker, resume) {
+    
+    function postedBy(jobseeker) {
+        return (jobseeker === jobseeker);
+    }
+
     function displayOn(aDisplay) {
         var jobseekerResume = [
             'Jobseeker Resume\n',
@@ -6,11 +11,11 @@ function JobseekerResume(jobseeker, resume) {
             jobseeker.displayOn(aDisplay),'\n\n',
             resume.displayOn(aDisplay)
         ].join('');
-        console.log(jobseekerResume);
         return aDisplay.test(jobseekerResume);
     }
 
     return {
+        postedBy : postedBy,
         displayOn : displayOn
     };
 
