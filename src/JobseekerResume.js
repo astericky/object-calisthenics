@@ -1,9 +1,12 @@
 function JobseekerResume(jobseeker, resume) {
     function displayOn(aDisplay) {
         var jobseekerResume = [
-            'Jobseeker: ', jobseeker.displayOn(aDisplay),
-            ' / Resume: ', resume.displayOn(aDisplay)
+            'Jobseeker Resume\n',
+            '----------------\n',
+            jobseeker.displayOn(aDisplay),'\n\n',
+            resume.displayOn(aDisplay)
         ].join('');
+        console.log(jobseekerResume);
         return aDisplay.test(jobseekerResume);
     }
 

@@ -27,9 +27,12 @@
 
 
     var resume = new Resume(new Id(100));
+    var jobseeker = new Jobseeker(new Name('JoeC'), new Id(2));
+    var jobseekerResume = new JobseekerResume(jobseeker, resume);
     
-    console.log(resume.displayOn(aDisplay));
-
+    //console.log(resume.displayOn(aDisplay));
+    //console.log(jobseeker.displayOn(aDisplay));
+    jobseekerResume.displayOn(aDisplay);
 
 
 })();
