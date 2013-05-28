@@ -1,13 +1,11 @@
 function Jobseeker(name, id) {
-    var name = name;
-    var id = id;
     
     function displayOn(aDisplay) {
-        var recruiter = [
-            'ID: ', id.represent(aDisplay),
-            ' / Name: ', name.represent(aDisplay)
+        var jobseeker = [
+            'ID: ', id.displayOn(aDisplay),
+            ' / Name: ', name.displayOn(aDisplay)
         ].join('');
-        return aDisplay.test(recruiter);
+        return aDisplay.test(jobseeker);
     }
 
     return {

@@ -1,4 +1,4 @@
-function RecruiterJob(job, recruiter) {
+function RecruiterJob(recruiter, job) {
 
     function postedBy(jobRecruiter) {
         return (jobRecruiter === recruiter);
