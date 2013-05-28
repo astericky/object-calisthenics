@@ -2,8 +2,8 @@ function Job(title, id) {
 
     function displayOn(aDisplay) {
         var recruiter = [
-            'ID: ', id.represent(aDisplay),
-            ' / Title: ', title.represent(aDisplay)
+            'ID: ', id.displayOn(aDisplay),
+            ' / Title: ', title.displayOn(aDisplay)
         ].join('');
         return aDisplay.test(recruiter);
     }

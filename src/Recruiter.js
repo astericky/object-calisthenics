@@ -2,8 +2,8 @@ function Recruiter(name, id) {
     
     function displayOn(aDisplay) {
         var recruiter = [
-            'ID: ', id.represent(aDisplay),
-            ' / Name: ', name.represent(aDisplay)
+            'ID: ', id.displayOn(aDisplay),
+            ' / Name: ', name.displayOn(aDisplay)
         ].join('');
         return aDisplay.test(recruiter);
     }
@@ -12,3 +12,5 @@ function Recruiter(name, id) {
         displayOn : displayOn
     };
 }
+
+

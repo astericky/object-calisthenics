@@ -1,11 +1,10 @@
-function JobTitle() {
-    var jobTitle = jobTitle;
+function JobTitle(title) {
     
-    function represent() {
-        return display.test(id);
+    function displayOn(aDisplay) {
+        return aDisplay.test(title);
     }
 
     return {
-        represent : represent
+        displayOn : displayOn
     };
 }
