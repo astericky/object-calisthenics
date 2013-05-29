@@ -15,6 +15,19 @@ function AllResumes() {
         };
     }
 
+    function resumeExists(resume) {
+        var exists = select(selectByResume(resume)).length === 1 ? true : false;
+        console.log(select(selectByResume(resume)).length);
+        return exists;
+    }
+    
+    function selectByResume(resume) {
+        return function(postedResume) {
+            console.log(postedResume);
+            return (resume === postedResume);
+        }
+    }
+
     function select(fn) { // make this more clear
         var resumes = [];
         var length = postedResumes.length;
@@ -29,7 +42,8 @@ function AllResumes() {
 
     return {
         post : post,
-        postedBy : postedBy
+        postedBy : postedBy,
+        resumeExists : resumeExists
     };
 }
 
