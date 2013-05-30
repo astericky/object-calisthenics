@@ -16,15 +16,17 @@ function AllResumes() {
     }
 
     function resumeExists(resume) {
-        var exists = select(selectByResume(resume)).length === 1 ? true : false;
-        console.log(select(selectByResume(resume)).length);
+        var exists = select(selectByResume(resume)).length > 0 ? true : false;
         return exists;
     }
     
     function selectByResume(resume) {
         return function(postedResume) {
-            return (resume === postedResume);
-        }
+            var aDisplay = new Display();
+            var resumeId = resume.displayOn(aDisplay);
+            var postedResumeId = postedResume.displayOn(aDisplay);
+            return resumeId === postedResumeId;
+        };
     }
 
     function select(fn) { // make this more clear

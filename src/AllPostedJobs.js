@@ -15,6 +15,20 @@ function AllPostedJobs() {
         };
     }
 
+    function jobExists(job) {
+        var exists = select(selectByJob(job)).length > 0 ? true : false;
+        return exists;
+    }
+
+    function selectByJob(job) {
+        return function(postedJob) {
+            var aDisplay = new Display();
+            var jobId = job.displayOn(aDisplay);
+            var postedJobId = postedJob.displayOn(aDisplay);
+            return jobId === postedJobId;
+        };
+    }
+
     function select(fn) { // make this more clear
         var jobs = [];
         var length = postedJobs.length;
@@ -25,11 +39,6 @@ function AllPostedJobs() {
             }
         }
         return jobs;
-    }
-
-    function display(job) {
-        var aDisplay = new Display();
-        return job.displayOn(aDisplay);
     }
 
     return {
