@@ -1,10 +1,7 @@
 function Jobseeker(name, id) {
     
     function displayOn(aDisplay) {
-        var jobseeker = [
-            'ID: ', id.displayOn(aDisplay),
-            ' / Name: ', name.displayOn(aDisplay)
-        ].join('');
+        var jobseeker = name.displayOn(aDisplay);
         return aDisplay.test(jobseeker);
     }
 

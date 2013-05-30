@@ -23,7 +23,6 @@ function AllResumes() {
     
     function selectByResume(resume) {
         return function(postedResume) {
-            console.log(postedResume);
             return (resume === postedResume);
         }
     }
