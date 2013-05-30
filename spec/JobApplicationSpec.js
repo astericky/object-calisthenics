@@ -7,9 +7,13 @@ describe('Job Board', function() {
     var jobseeker = new Jobseeker(new Name('Chris'), new Id(32));
 
     describe('Recruiter', function() {
-        it('has a name and id', function() {
+        it('exists', function() {
             expect(recruiter).toBeDefined();
-            expect(recruiter.displayOn(aDisplay)).toEqual('ID: 1 / Name: Sean');
+        });
+
+        it('should show name', function() {
+            var name = 'Sean';
+            expect(recruiter.displayOn(aDisplay)).toEqual(name);
         });
 
         it('can post a job', function() {
@@ -22,9 +26,12 @@ describe('Job Board', function() {
         });
     });
 
-    describe('Jobseeker', function() {
-        it('has a name and id', function() {
+    #describe('Jobseeker', function() {
+        it('exists', function() {
             expect(jobseeker).toBeDefined();
+        });
+
+        it('has a name and id', function() {
             expect(jobseeker.displayOn(aDisplay)).toEqual('ID: 32 / Name: Chris');
         });
 
@@ -34,6 +41,16 @@ describe('Job Board', function() {
             var jrWebDeveloperResume = new JobseekerResume(jobseeker, resume);
             allResumes.post(jrWebDeveloperResume);
             expect(allResumes.resumeExists(resume)).toEqual(true);
+        });
+
+        it('can submit a job application', function() {
+            var jobPostedByRecruiter;
+            var srWebDeveloper = new Job(new JobTitle('Sr. Web Developer'), new Id(413));
+            var job = new RecruiterJob(recruiter, jrWebDeveloper);
+            var jobApplication = new JobApplication(recruiterJob);
+            allPostedJobs.post(job); 
+            jobseeker.submitApplication();
+            
         });
     });
 
