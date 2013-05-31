@@ -22,7 +22,7 @@ function AllPostedJobs() {
 
     function selectByJob(job) {
         return function(postedJob) {
-            var aDisplay = new Display();
+            var aDisplay = new EchoDisplay();
             var jobId = job.displayOn(aDisplay);
             var postedJobId = postedJob.displayOn(aDisplay);
             return jobId === postedJobId;

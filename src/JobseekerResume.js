@@ -11,7 +11,7 @@ function JobseekerResume(jobseeker, resume) {
             jobseeker.displayOn(aDisplay),'\n\n',
             resume.displayOn(aDisplay)
         ].join('');
-        return aDisplay.test(jobseekerResume);
+        return aDisplay.display(jobseekerResume);
     }
 
     return {

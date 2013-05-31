@@ -10,7 +10,7 @@ function SavedJob(jobseeker, job) {
             job.displayOn(aDisplay),
             jobseeker.displayOn(aDisplay)
         ].join('');
-        return aDisplay.test(savedJob);
+        return aDisplay.display(savedJob);
     }
 
     return {

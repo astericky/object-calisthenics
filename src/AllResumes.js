@@ -22,7 +22,7 @@ function AllResumes() {
     
     function selectByResume(resume) {
         return function(postedResume) {
-            var aDisplay = new Display();
+            var aDisplay = new EchoDisplay();
             var resumeId = resume.displayOn(aDisplay);
             var postedResumeId = postedResume.displayOn(aDisplay);
             return resumeId === postedResumeId;

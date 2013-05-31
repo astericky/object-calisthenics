@@ -10,7 +10,7 @@ function Job(title, id) {
 
     function displayOn(aDisplay) {
         var jobTitle = title.displayOn(aDisplay);
-        return aDisplay.test(jobTitle);
+        return aDisplay.display(jobTitle);
     }
 
     return {

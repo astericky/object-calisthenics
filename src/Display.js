@@ -1,15 +1,20 @@
-function Display() {
+function ConsoleDisplay() {
 
     function display(data) {
         console.log(data);
     }
 
-    function test(data) {
-        return data;
-    }
-
     return {
         display : display,
-        test : test
+    }
+}
+
+function EchoDisplay() {
+    function display(data) {
+        return data;
+    }
+    
+    return {
+        display: display
     }
 }

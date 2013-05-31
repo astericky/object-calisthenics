@@ -10,7 +10,7 @@ function RecruiterJob(recruiter, job) {
             'Job: ', job.displayOn(aDisplay),
             ', Recruiter: ', recruiter.displayOn(aDisplay)
         ].join('');
-        return aDisplay.test(recruiterJob);
+        return aDisplay.display(recruiterJob);
     }
     return {
         postedBy : postedBy,

@@ -10,7 +10,7 @@ function Id(id) {
     }
 
     function displayOn(aDisplay) {
-        return aDisplay.test(id);
+        return aDisplay.display(id);
     }
 
     return {
