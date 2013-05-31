@@ -43,6 +43,7 @@ function AllPostedJobs() {
 
     return {
         post : post,
-        postedBy : postedBy
+        postedBy : postedBy,
+        jobExists : jobExists
     };
 }

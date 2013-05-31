@@ -35,8 +35,8 @@ describe('Job Board', function() {
        expect(allPostedJobs).toBeDefined(); 
     });
 
-    describe('Name', function() {
-        it('should exist', function() {
+    xdescribe('Name', function() {
+        it('exist', function() {
             expect(jobseekerName).toBeDefined();
         });
     });
@@ -53,7 +53,7 @@ describe('Job Board', function() {
 
     describe('Job', function() {
         it('shows its title', function() {
-            expect(job.displayOn(aDisplay)).toEqual(title.displayOn(aDisplay));    
+            expect(job.displayOn(aDisplay)).toEqual(webDeveloper.displayOn(aDisplay));    
         });
 
         it('should be equal to another job with a different title but with the same ID', function() {
@@ -71,14 +71,13 @@ describe('Job Board', function() {
             expect(recruiter.displayOn(aDisplay)).toEqual(name);
         });
 
-        xit('can post a job', function() {
+        it('should post a job', function() {
             allPostedJobs.post(recruiterJob1);
-            expect(AllPostedJobs.jobExists(recruiterJob1)).toEqual(true);
+            expect(allPostedJobs.jobExists(recruiterJob1)).toEqual(true);
         });
     });
 
     describe('Jobseeker', function() {
-
         it('shows their name', function() {
             var name = 'Chris';
             expect(jobseeker.displayOn(aDisplay)).toEqual(name);
