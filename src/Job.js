@@ -1,5 +1,5 @@
 function Job(title, id) {
-    // protected method only use with other objects of the same type
+    
     function getId() {
         return id;
     }

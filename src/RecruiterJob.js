@@ -4,17 +4,19 @@ function RecruiterJob(recruiter, job) {
         return (jobRecruiter === recruiter);
     }
 
+    function equals() {
+        return job.equals(job) && recruiter.equals(recruiter);
+    }
 
-    function displayOn(aDisplay) { // need to work on this
-        var recruiterJob = [
-            'Job: ', job.displayOn(aDisplay),
-            ', Recruiter: ', recruiter.displayOn(aDisplay)
-        ].join('');
+
+    function displayOn(aDisplay) {
+        var recruiterJob = job.displayOn(aDisplay);;
         return aDisplay.display(recruiterJob);
     }
     return {
-        postedBy : postedBy,
+        equals : equals,
         displayOn : displayOn
+        postedBy : postedBy,
     };
 }
 

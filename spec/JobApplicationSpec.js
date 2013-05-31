@@ -30,6 +30,13 @@ describe('Job Board', function() {
     var recruiterJob1 = new RecruiterJob(recruiter, webDeveloper);
     var recruiterJob2 = new RecruiterJob(recruiter, softwareEngineer);
 
+    // job application
+    var jobApplication = new JobApplication(recruiter, jobseeker);
+    var date = new Date(2013, 04, 30);
+    var submittedJobApplication = new JobApplication(jobApplication, date);
+    
+    // post job application
+    allPostedJobs.post(recruiterJob1);
 
     it('exists', function() {
        expect(allPostedJobs).toBeDefined(); 
@@ -65,6 +72,15 @@ describe('Job Board', function() {
         });
     });
 
+    describe('Job Application', function() {
+        it('', function() {
+        });
+        it('', function() {
+        });
+        it('', function() {
+        });
+    });
+
     describe('Recruiter', function() {
         it('shows their name', function() {
             var name = 'Sean';
@@ -72,7 +88,6 @@ describe('Job Board', function() {
         });
 
         it('should post a job', function() {
-            allPostedJobs.post(recruiterJob1);
             expect(allPostedJobs.jobExists(recruiterJob1)).toEqual(true);
         });
     });
@@ -93,17 +108,10 @@ describe('Job Board', function() {
             expect(allResumes.resumeExists(someOtherResume)).toEqual(true);
         });
 
-        xit('can submit a job application', function() {
-            var jobPostedByRecruiter;
-            var srWebDeveloper = new Job(new JobTitle('Sr. Web Developer'), new Id(413));
-            var job = new RecruiterJob(recruiter, jrWebDeveloper);
-            var jobApplication = new JobApplication(recruiterJob);
-            allPostedJobs.post(job); 
-            jobseeker.submitApplication();
-            
+        it('should be able to submit a job application that does not require a resume', function() {
+           expect(allJobApplications.exist(submittedJobApplication).toEqual(true);
         });
     });
 
-    
 });
 
