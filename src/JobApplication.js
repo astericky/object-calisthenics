@@ -9,10 +9,10 @@ function JobApplication(recruiterJob, jobseeker) {
     }
     
     function equals(jobApplication) {
-        var otherRecruiterJob = jobApplication.getRecruiterJob();
-        var otherJobseeker = jobApplication.getJobseeker();
-        var jobsEqual = recruiterJob.euqals(otherRecruiterJob);
-        var jobseekersEqual = jobseeker.equals(otherJobseeker);
+        var job = jobApplication.getRecruiterJob();
+        var seeker = jobApplication.getJobseeker();
+        var jobsEqual = recruiterJob.equals(job);
+        var jobseekersEqual = jobseeker.equals(seeker);
         return jobsEqual && jobseekersEqual;
     }
 
@@ -21,6 +21,8 @@ function JobApplication(recruiterJob, jobseeker) {
     
     return {
         equals : equals,
-        displayOn : displayOn
+        displayOn : displayOn,
+        getRecruiterJob : getRecruiterJob,
+        getJobseeker : getJobseeker
     };
 }

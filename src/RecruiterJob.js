@@ -15,7 +15,7 @@ function RecruiterJob(recruiter, job) {
     }
     return {
         equals : equals,
-        displayOn : displayOn
+        displayOn : displayOn,
         postedBy : postedBy,
     };
 }

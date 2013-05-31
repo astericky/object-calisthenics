@@ -31,12 +31,14 @@ describe('Job Board', function() {
     var recruiterJob2 = new RecruiterJob(recruiter, softwareEngineer);
 
     // job application
-    var jobApplication = new JobApplication(recruiter, jobseeker);
+    var jobApplication = new JobApplication(recruiterJob1, jobseeker);
     var date = new Date(2013, 04, 30);
     var submittedJobApplication = new JobApplication(jobApplication, date);
     
-    // post job application
+    // post job 
     allPostedJobs.post(recruiterJob1);
+
+    // post job application
 
     it('exists', function() {
        expect(allPostedJobs).toBeDefined(); 
@@ -89,6 +91,9 @@ describe('Job Board', function() {
 
         it('should post a job', function() {
             expect(allPostedJobs.jobExists(recruiterJob1)).toEqual(true);
+        });
+
+        it('should be able to see a listing of the jobs they posted', function() {
         });
     });
 
