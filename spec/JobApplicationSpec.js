@@ -37,6 +37,7 @@ describe('Job Board', function() {
     
     // post job 
     allPostedJobs.post(recruiterJob1);
+    allPostedJobs.post(recruiterJob2);
 
     // post job application
 
@@ -93,7 +94,9 @@ describe('Job Board', function() {
             expect(allPostedJobs.jobExists(recruiterJob1)).toEqual(true);
         });
 
-        it('should be able to see a listing of the jobs they posted', function() {
+        xit('should be able to see a listing of the jobs they posted', function() {
+            //var postedJobs = allPostedJobs.postedBy(recruiter).join(', ');
+            //expect(allPostedJobs.postedBy(recruiter)).toEqual();
         });
     });
 
@@ -103,7 +106,7 @@ describe('Job Board', function() {
             expect(jobseeker.displayOn(aDisplay)).toEqual(name);
         });
 
-        it('can post a resume', function() {
+        xit('can post a resume', function() {
             var resumePostedByJobseeker;
             var resume = new Resume(new Id(200));
             var jrWebDeveloperResume = new JobseekerResume(jobseeker, resume);
@@ -113,8 +116,8 @@ describe('Job Board', function() {
             expect(allResumes.resumeExists(someOtherResume)).toEqual(true);
         });
 
-        it('should be able to submit a job application that does not require a resume', function() {
-           expect(allJobApplications.exist(submittedJobApplication).toEqual(true);
+        xit('should be able to submit a job application that does not require a resume', function() {
+           expect(allJobApplications.exist(submittedJobApplication)).toEqual(true);
         });
     });
 

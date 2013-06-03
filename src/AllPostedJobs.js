@@ -38,12 +38,18 @@ function AllPostedJobs() {
                 jobs.push(postedJobs[i]);
             }
         }
-        return jobs;
+
+        return new Jobs(jobs);
+    }
+
+    function displayOn(aDisplay) {
+
     }
 
     return {
         post : post,
         postedBy : postedBy,
-        jobExists : jobExists
+        jobExists : jobExists,
+        displayOn : displayOn
     };
 }

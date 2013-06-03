@@ -18,5 +18,3 @@ function Recruiter(name, id) {
         displayOn : displayOn
     };
 }
-
-
