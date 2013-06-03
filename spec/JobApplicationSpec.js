@@ -91,7 +91,7 @@ describe('Job Board', function() {
         });
 
         it('should post a job', function() {
-            expect(allPostedJobs.jobExists(recruiterJob1)).toEqual(true);
+            expect(allPostedJobs.jobExists(recruiterJob1)).toBeTruthy();
         });
 
         xit('should be able to see a listing of the jobs they posted', function() {

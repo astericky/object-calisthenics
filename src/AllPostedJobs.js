@@ -16,8 +16,7 @@ function AllPostedJobs() {
     }
 
     function jobExists(job) {
-        var exists = select(selectByJob(job)).length > 0 ? true : false;
-        return exists;
+        return select(selectByJob(job));
     }
 
     function selectByJob(job) {
