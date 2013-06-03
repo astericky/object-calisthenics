@@ -13,9 +13,11 @@ function RecruiterJob(recruiter, job) {
     }
 
     function equals(recruiterJob) {
-        var aRegruiter = recruiterJob.getRecruiter();
+        console.log(job);
+        var aRecruiter = recruiterJob.getRecruiter();
         var aJob = recruiterJob.getJob();
         var recruitersEqual = recruiter.equals(aRecruiter);
+        console.log(recruitersEqual);
         var jobsEqual = job.equals(aJob);
         return recruitersEqual && jobsEqual;
     }
@@ -29,6 +31,8 @@ function RecruiterJob(recruiter, job) {
         equals : equals,
         displayOn : displayOn,
         postedBy : postedBy,
+        getRecruiter : getRecruiter,
+        getJob : getJob
     };
 }
 

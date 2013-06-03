@@ -27,8 +27,8 @@ describe('Job Board', function() {
     var differentJob = new Job(softwareEngineer, new Id(12));
 
     // recruiter job
-    var recruiterJob1 = new RecruiterJob(recruiter, webDeveloper);
-    var recruiterJob2 = new RecruiterJob(recruiter, softwareEngineer);
+    var recruiterJob1 = new RecruiterJob(recruiter, job);
+    var recruiterJob2 = new RecruiterJob(recruiter, sameJob);
 
     // job application
     var jobApplication = new JobApplication(recruiterJob1, jobseeker);
@@ -94,8 +94,10 @@ describe('Job Board', function() {
             expect(allPostedJobs.jobExists(recruiterJob1)).toBeTruthy();
         });
 
-        xit('should be able to see a listing of the jobs they posted', function() {
-            //var postedJobs = allPostedJobs.postedBy(recruiter).join(', ');
+        it('should be able to see a listing of the jobs they posted', function() {
+            var sameJobs = [recruiterJob1, recruiterJob2];
+            var jobs = new Jobs(sameJobs);
+            
             //expect(allPostedJobs.postedBy(recruiter)).toEqual();
         });
     });

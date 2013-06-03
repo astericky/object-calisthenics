@@ -15,6 +15,7 @@ function Recruiter(name, id) {
 
     return {
         equals : equals,
-        displayOn : displayOn
+        displayOn : displayOn,
+        getId : getId
     };
 }

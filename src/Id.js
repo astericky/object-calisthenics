@@ -5,7 +5,6 @@ function Id(id) {
     }
 
     function equals(ID) {
-        //var aDisplay = new Display();
         return id === ID.getId();
     }
 

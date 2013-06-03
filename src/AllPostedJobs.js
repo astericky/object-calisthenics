@@ -21,10 +21,7 @@ function AllPostedJobs() {
 
     function selectByJob(job) {
         return function(postedJob) {
-            var aDisplay = new EchoDisplay();
-            var jobId = job.displayOn(aDisplay);
-            var postedJobId = postedJob.displayOn(aDisplay);
-            return jobId === postedJobId;
+            return job.equals(postedJob);
         };
     }
 
@@ -41,14 +38,9 @@ function AllPostedJobs() {
         return new Jobs(jobs);
     }
 
-    function displayOn(aDisplay) {
-
-    }
-
     return {
         post : post,
         postedBy : postedBy,
-        jobExists : jobExists,
-        displayOn : displayOn
+        jobExists : jobExists
     };
 }
