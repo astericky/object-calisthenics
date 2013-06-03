@@ -75,15 +75,6 @@ describe('Job Board', function() {
         });
     });
 
-    describe('Job Application', function() {
-        it('', function() {
-        });
-        it('', function() {
-        });
-        it('', function() {
-        });
-    });
-
     describe('Recruiter', function() {
         it('shows their name', function() {
             var name = 'Sean';
@@ -120,6 +111,15 @@ describe('Job Board', function() {
 
         xit('should be able to submit a job application that does not require a resume', function() {
            expect(allJobApplications.exist(submittedJobApplication)).toEqual(true);
+        });
+    });
+
+    describe('Job Application', function() {
+        it('', function() {
+        });
+        it('', function() {
+        });
+        it('', function() {
         });
     });
 

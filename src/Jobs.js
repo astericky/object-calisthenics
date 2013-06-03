@@ -5,21 +5,20 @@ function Jobs(jobs) {
     }
 
     function equals(otherJobs) {
+        return select(exist(otherJobs)); 
+    }
+
+    function exist(otherJobs) {
+        var sameJobs = otherJobs.getJobs();
+        var length = sameJobs.length;
         for (var i = 0; i < length; i++) {
+            return selectByJob(sameJobs[i]);
         }
     }
 
-    function jobExists(job) {
-        var exists = select(selectByJob(job)).length > 0 ? true : false;
-        return exists;
-    }
-
     function selectByJob(job) {
-        return function(postedJob) {
-            var aDisplay = new EchoDisplay();
-            var jobId = job.displayOn(aDisplay);
-            var postedJobId = postedJob.displayOn(aDisplay);
-            return jobId === postedJobId;
+        return function(otherJob) {
+            return job.equals(otherJob);
         };
     }
 
@@ -33,8 +32,7 @@ function Jobs(jobs) {
             }
         }
 
-        // wrap jobs array in a new Jobs class
-        return jobs;
+        return true;
     }
 
     return {
