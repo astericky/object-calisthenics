@@ -7,8 +7,12 @@ function SubmittedJobApplication(jobApplication, date) {
        return jobApplication;
     }
 
+    function displayOn(aDisplay) {
+    }
+
     return {
         equals : equals,
+        displayOn : displayOn,
         getJobApplication : getJobApplication,
         getDate : getDate
     };

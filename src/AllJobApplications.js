@@ -31,7 +31,7 @@ function AllJobApplications() {
             }
         }
 
-        return new Jobs(jobs);
+        return new Applications(applications);
     }
 
     return {
