@@ -3,6 +3,7 @@ describe('Job Board', function() {
     var allPostedJobs = new AllPostedJobs();
     var allSavedJobs = new AllPostedJobs();
     var allResumes = new AllResumes();
+    var allJobApplications = new AllJobApplications();
 
     // name
     var jobseekerName = new Name('Chris');
@@ -109,7 +110,7 @@ describe('Job Board', function() {
             expect(allResumes.resumeExists(someOtherResume)).toEqual(true);
         });
 
-        xit('should be able to submit a job application that does not require a resume', function() {
+        it('should be able to submit a job application that does not require a resume', function() {
            expect(allJobApplications.exist(submittedJobApplication)).toEqual(true);
         });
     });

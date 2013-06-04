@@ -26,7 +26,7 @@ function Jobs(jobs) {
         };
     }
 
-    function any(fn) { // make this more clear
+    function any(fn) { 
         var length = size();
         for (var i = 0; i < length; i++) {
             if (!fn(jobs[i])) {
