@@ -1,28 +1,28 @@
 function Applications(applications) {
 
-    function equals(otherJobs) {
-        return isSameSizeAs(otherJobs) && isSubsetOf(otherJobs); 
+    function equals(otherApplications) {
+        return isSameSizeAs(otherApplications) && isSubsetOf(otherApplications); 
     }
 
     function size() {
-        return jobs.length;
+        return applications.length;
     }
 
-    function isSameSizeAs(otherJobs) {
-        return size() === otherJobs.size();
+    function isSameSizeAs(otherApplications) {
+        return size() === otherApplications.size();
     }
 
-    function exists(job) {
-        return selectByJob(job);
+    function exists(application) {
+        return selectByApplication(application);
     }
 
-    function isSubsetOf(otherJobs) {
-        return any(otherJobs.exists);
+    function isSubsetOf(otherApplications) {
+        return any(otherApplications.exists);
     }
 
-    function selectByJob(job) {
-        return function(otherJob) {
-            return job.equals(otherJob);
+    function selectByApplication(application) {
+        return function(otherApplication) {
+            return application.equals(otherApplication);
         };
     }
 
