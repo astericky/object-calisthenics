@@ -10,6 +10,7 @@ function AllJobApplications() {
     }
 
     function exists(jobApplication) {
+        return true;
     }
 
     function selectByRecruiter(recruiter) {

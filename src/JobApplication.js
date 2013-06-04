@@ -16,12 +16,8 @@ function JobApplication(recruiterJob, jobseeker) {
         return jobsEqual && jobseekersEqual;
     }
 
-    function displayOn(aDisplay) {
-    }
-    
     return {
         equals : equals,
-        displayOn : displayOn,
         getRecruiterJob : getRecruiterJob,
         getJobseeker : getJobseeker
     };

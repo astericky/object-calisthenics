@@ -34,7 +34,8 @@ describe('Job Board', function() {
     // job application
     var jobApplication = new JobApplication(recruiterJob1, jobseeker);
     var date = new Date(2013, 04, 30);
-    var submittedJobApplication = new JobApplication(jobApplication, date);
+    var submittedJobApplication = new SubmittedJobApplication(jobApplication, date);
+    var sameJobApplication = new SubmittedJobApplication(jobApplication, date);
     
     // post job 
     allPostedJobs.post(recruiterJob1);
@@ -111,7 +112,8 @@ describe('Job Board', function() {
         });
 
         it('should be able to submit a job application that does not require a resume', function() {
-           expect(allJobApplications.exist(submittedJobApplication)).toEqual(true);
+            allJobApplications.submit(submittedJobApplication);
+            expect(allJobApplications.exists(submittedJobApplication)).toEqual(true);
         });
     });
 

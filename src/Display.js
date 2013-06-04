@@ -18,3 +18,17 @@ function EchoDisplay() {
         display: display
     }
 }
+
+function ApplicationDisplay() {
+    function display(Obj) {
+        return data;
+    }
+    
+    return {
+        display: display
+    }
+}
+
+function SubmittedJobApplicationDisplay() {
+}
+
