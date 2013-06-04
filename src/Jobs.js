@@ -12,7 +12,7 @@ function Jobs(jobs) {
         return size === otherJobs.size();
     }
 
-    function extists(job) {
+    function exists(job) {
         selectByJob(job);
     }
 
