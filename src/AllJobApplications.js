@@ -1,22 +1,38 @@
 function AllJobApplications() {
-    var submittedJobApplications = [];
+    var jobApplications = [];
     
     function submit(jobApplication) {
-        submittedJobApplications.push(jobApplication);
+        jobApplications.push(jobApplication);
+    }
+    
+    function size() {
+        return jobApplications.length;
     }
 
     function exists(jobApplication) {
     }
 
-    selectByRecruiter(recruiter) {
+    function selectByRecruiter(recruiter) {
     }
 
-    selectByJob(job) {
+    function selectByJob(job) {
     }
 
-    selectByDate(date) {
+    function selectByDate(date) {
     }
 
+    function select(fn) { // make this more clear
+        var applications = [];
+        var length = postedJobs.length;
+
+        for (var i = 0; i < length; i++) {
+            if (fn(postedJobs[i])) {
+                jobs.push(postedJobs[i]);
+            }
+        }
+
+        return new Jobs(jobs);
+    }
 
     return {
         exists : exists,
