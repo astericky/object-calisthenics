@@ -1,5 +1,6 @@
 describe('Job Board', function() {
     var aDisplay = new EchoDisplay();
+    var applicationDisplay = new ApplicationDisplay();
     var allPostedJobs = new AllPostedJobs();
     var allSavedJobs = new AllPostedJobs();
     var allResumes = new AllResumes();
@@ -33,7 +34,7 @@ describe('Job Board', function() {
 
     // job application
     var jobApplication = new JobApplication(recruiterJob1, jobseeker);
-    console.log(jobApplication.displayOn(aDisplay));
+    console.log(jobApplication.displayOn(applicationDisplay));
     var date = new Date(2013, 04, 30);
     var submittedJobApplication = new SubmittedJobApplication(jobApplication, date);
     var sameJobApplication = new SubmittedJobApplication(jobApplication, date);

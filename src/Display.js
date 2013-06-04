@@ -28,9 +28,7 @@ function ApplicationDisplay() {
             job.displayOn(aDisplay),
             jobseeker.displayOn(aDisplay)
         ].join(' ');
-        return { 
-            display : display
-        };
+        return application;
     }
     
     return {
