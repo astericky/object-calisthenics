@@ -1,7 +1,7 @@
 function Jobs(jobs) {
 
     function equals(otherJobs) {
-        return select(exist(otherJobs)); 
+        return isSameSizeAs(otherJobs) && isSubsetOf(otherJobs); 
     }
 
     function size() {
@@ -9,11 +9,15 @@ function Jobs(jobs) {
     }
 
     function isSameSizeAs(otherJobs) {
-        return size === otherJobs.size();
+        return size() === otherJobs.size();
     }
 
     function exists(job) {
-        selectByJob(job);
+        return selectByJob(job);
+    }
+
+    function isSubsetOf(otherJobs) {
+        return any(otherJobs.exists);
     }
 
     function selectByJob(job) {
@@ -22,17 +26,13 @@ function Jobs(jobs) {
         };
     }
 
-    function select(fn) { // make this more clear
-        var jobs = [];
-        var length = jobs.length;
-
+    function any(fn) { // make this more clear
+        var length = size();
         for (var i = 0; i < length; i++) {
-            return 
             if (!fn(jobs[i])) {
                 return false;
             }
         }
-
         return true;
     }
 
@@ -40,6 +40,6 @@ function Jobs(jobs) {
         equals : equals,
         exists : exists,
         isSameSizeAs : isSameSizeAs,
-        size : size
+        size : size,
     };
 }
