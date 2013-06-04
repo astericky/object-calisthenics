@@ -14,9 +14,15 @@ function AllJobApplications() {
     }
 
     function selectByRecruiter(recruiter) {
+        return function(job) {
+            return job.postedBy(recruiter);
+        };
     }
 
     function selectByJob(job) {
+        return function (otherJob) {
+            return job.equals(otherJob);
+        }
     }
 
     function selectByDate(date) {
@@ -31,7 +37,6 @@ function AllJobApplications() {
                 applicarions.push(postedJobs[i]);
             }
         }
-
         return new Applications(applications);
     }
 
