@@ -34,17 +34,21 @@ describe('Job Board', function() {
 
     // job application
     var jobApplication = new JobApplication(recruiterJob1, jobseeker);
+    var differentJobApplication = new JobApplication(recruiterJob2, jobseeker);
     var date = new Date(2013, 04, 30);
     var submittedJobApplication = new SubmittedJobApplication(jobApplication, date);
-    var sameJobApplication = new SubmittedJobApplication(jobApplication, date);
+    var sameSubmittedJobApplication = new SubmittedJobApplication(jobApplication, date);
+    var differentSubmittedJobApplication = new SubmittedJobApplication(differentJobApplication, date);
     
     
     // post job 
     allPostedJobs.post(recruiterJob1);
     allPostedJobs.post(recruiterJob2);
 
-    // post job application
+    // submit job application
     allJobApplications.submit(submittedJobApplication);
+    allJobApplications.submit(differentSubmittedJobApplication);
+
 
     it('exists', function() {
         expect(allPostedJobs).toBeDefined(); 
@@ -96,6 +100,18 @@ describe('Job Board', function() {
             var jobsPostedByRecruiter = allPostedJobs.postedBy(recruiter);
             expect(jobsPostedByRecruiter.equals(jobs)).toEqual(true);
         });
+
+        xit('should be able to see jobseekers who have applied to their jobs by job', function() {
+        });
+
+
+        xit('should be able to see jobseekers who have applied to their jobs by day', function() {
+        });
+
+
+        xit('should be able to see jobseekers who have applied to a given job on a given day', function() {
+        });
+
     });
 
     describe('Jobseeker', function() {
@@ -117,24 +133,23 @@ describe('Job Board', function() {
         it('should be able to submit a job application that does not require a resume', function() {
             expect(allJobApplications.exists(submittedJobApplication)).toEqual(true);
         });
+        
+        xit('should be able to submit a job application that does require a resume', function() {
+        });
 
         it('should be able to see a listing of jobs for which they have applied', function() {
             
-            
         });
 
-        it('should be able to see a listing of jobs saved for later viewing', function() {
+        xit('should be able to see a listing of jobs saved for later viewing', function() {
         });
 
     });
 
-    describe('Job Application', function() {
-        it('', function() {
-        });
-        it('', function() {
-        });
-        it('', function() {
-        });
+    xit('should be able to see jobseekers who have applied to jobs on any given day', function() {
+    });
+
+    xit('should be able to see aggregate job application numbers by job and recruiter', function() {
     });
 
 });

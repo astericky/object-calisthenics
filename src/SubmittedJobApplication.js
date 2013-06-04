@@ -22,6 +22,10 @@ function SubmittedJobApplication(jobApplication, date) {
         return date;
     }
 
+    function displayOn(aDisplay) {
+        return aDisplay.display(jobApplication, date);
+    }
+
     return {
         equals : equals,
         getJobApplication : getJobApplication,

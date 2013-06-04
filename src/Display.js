@@ -17,7 +17,7 @@ function EchoDisplay() {
     
     return {
         display: display
-    }
+    };
 }
 
 function ApplicationDisplay() {
@@ -33,9 +33,25 @@ function ApplicationDisplay() {
     
     return {
         display: display
-    }
+    };
 }
 
-function SubmittedJobApplicationDisplay() {
+function SubmittedApplicationDisplay() {
+
+    function display(job, jobseeker, date) {
+        var aDisplay = new EchoDisplay();
+        var application = [
+            job.displayOn(aDisplay),
+            jobseeker.displayOn(aDisplay),
+            date.toString()
+        ].join(' ');
+        return application;
+    }
+    
+    return {
+        display: display
+    };
 }
+
+
 

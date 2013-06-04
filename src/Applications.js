@@ -1,5 +1,9 @@
 function Applications(applications) {
 
+    function displayOn(aDisplay) {
+        return aDisplay.display(applications);
+    }
+
     function equals(otherApplications) {
         return isSameSizeAs(otherApplications) && isSubsetOf(otherApplications); 
     }
@@ -37,6 +41,7 @@ function Applications(applications) {
     }
 
     return {
+        displayOn : displayOn,
         equals : equals,
         exists : exists,
         isSameSizeAs : isSameSizeAs,
