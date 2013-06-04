@@ -115,6 +115,13 @@ describe('Job Board', function() {
             allJobApplications.submit(submittedJobApplication);
             expect(allJobApplications.exists(submittedJobApplication)).toEqual(true);
         });
+
+        it('should be able to see a listing of jobs for which they have applied', function() {
+        });
+
+        it('should be able to see a listing of jobs saved for later viewing', function() {
+        });
+
     });
 
     describe('Job Application', function() {

@@ -16,6 +16,14 @@ function JobApplication(recruiterJob, jobseeker) {
         return jobsEqual && jobseekersEqual;
     }
 
+    function displayOn(aDisplay) {
+        var application = [
+            recruiterJob.displayOn(aDisplay), ' ',
+            jobseeker.displayOn(aDisplay)
+        ].join('');
+        return aDisplay.display(application);
+    }
+
     return {
         equals : equals,
         getRecruiterJob : getRecruiterJob,

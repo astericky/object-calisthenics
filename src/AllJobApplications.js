@@ -24,11 +24,11 @@ function AllJobApplications() {
 
     function select(fn) { // make this more clear
         var applications = [];
-        var length = postedJobs.length;
+        var length = size();
 
         for (var i = 0; i < length; i++) {
-            if (fn(postedJobs[i])) {
-                jobs.push(postedJobs[i]);
+            if (fn(jobApplications[i])) {
+                applicarions.push(postedJobs[i]);
             }
         }
 
