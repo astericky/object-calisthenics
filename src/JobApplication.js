@@ -17,15 +17,12 @@ function JobApplication(recruiterJob, jobseeker) {
     }
 
     function displayOn(aDisplay) {
-        var application = [
-            recruiterJob.displayOn(aDisplay), ' ',
-            jobseeker.displayOn(aDisplay)
-        ].join('');
-        return aDisplay.display(application);
+        return aDisplay.display(recruiterJob, jobseeker);
     }
 
     return {
         equals : equals,
+        displayOn : displayOn,
         getRecruiterJob : getRecruiterJob,
         getJobseeker : getJobseeker
     };

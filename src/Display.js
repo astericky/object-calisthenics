@@ -5,11 +5,12 @@ function ConsoleDisplay() {
     }
 
     return {
-        display : display,
+        display : display
     }
 }
 
 function EchoDisplay() {
+
     function display(data) {
         return data;
     }
@@ -20,8 +21,16 @@ function EchoDisplay() {
 }
 
 function ApplicationDisplay() {
-    function display(Obj) {
-        return data;
+
+    function display(job, jobseeker) {
+        var aDisplay = new EchoDisplay();
+        var application = [
+            job.displayOn(aDisplay),
+            jobseeker.displayOn(aDisplay)
+        ].join(' ');
+        return { 
+            display : display
+        };
     }
     
     return {
