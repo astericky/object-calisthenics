@@ -15,7 +15,7 @@ function AllPostedJobs() {
         };
     }
 
-    function jobExists(job) {
+    function exists(job) {
         return select(selectByJob(job));
     }
 
@@ -41,6 +41,6 @@ function AllPostedJobs() {
     return {
         post : post,
         postedBy : postedBy,
-        jobExists : jobExists
+        exists : exists
     };
 }

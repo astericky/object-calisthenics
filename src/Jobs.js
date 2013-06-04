@@ -1,19 +1,19 @@
 function Jobs(jobs) {
 
-    function getJobs() {
-        return jobs;
-    }
-
     function equals(otherJobs) {
         return select(exist(otherJobs)); 
     }
 
-    function exist(otherJobs) {
-        var sameJobs = otherJobs.getJobs();
-        var length = sameJobs.length;
-        for (var i = 0; i < length; i++) {
-            return selectByJob(sameJobs[i]);
-        }
+    function size() {
+        return jobs.length;
+    }
+
+    function isSameSizeAs(otherJobs) {
+        return size === otherJobs.size();
+    }
+
+    function extists(job) {
+        selectByJob(job);
     }
 
     function selectByJob(job) {
@@ -27,6 +27,7 @@ function Jobs(jobs) {
         var length = jobs.length;
 
         for (var i = 0; i < length; i++) {
+            return 
             if (!fn(jobs[i])) {
                 return false;
             }
@@ -37,6 +38,8 @@ function Jobs(jobs) {
 
     return {
         equals : equals,
-        getJobs : getJobs
+        exists : exists,
+        isSameSizeAs : isSameSizeAs,
+        size : size
     };
 }

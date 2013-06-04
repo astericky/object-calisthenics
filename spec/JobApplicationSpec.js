@@ -42,7 +42,7 @@ describe('Job Board', function() {
     // post job application
 
     it('exists', function() {
-       expect(allPostedJobs).toBeDefined(); 
+        expect(allPostedJobs).toBeDefined(); 
     });
 
     xdescribe('Name', function() {
@@ -82,14 +82,14 @@ describe('Job Board', function() {
         });
 
         it('should post a job', function() {
-            expect(allPostedJobs.jobExists(recruiterJob1)).toBeTruthy();
+            expect(allPostedJobs.exists(recruiterJob1)).toBeTruthy();
         });
 
         it('should be able to see a listing of the jobs they posted', function() {
             var sameJobs = [recruiterJob1, recruiterJob2];
             var jobs = new Jobs(sameJobs);
-            
-            //expect(allPostedJobs.postedBy(recruiter)).toEqual();
+            var jobsPostedByRecruiter = allPostedJobs.postedBy(recruiter);
+            expect(jobsPostedByRecruiter.equals(jobs)).toEqual(true);
         });
     });
 
