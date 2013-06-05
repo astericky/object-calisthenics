@@ -38,11 +38,10 @@ function ApplicationDisplay() {
 
 function SubmittedApplicationDisplay() {
 
-    function display(job, jobseeker, date) {
-        var aDisplay = new EchoDisplay();
+    function display(jobApplication, date) {
+        var aDisplay = new ApplicationDisplay();
         var application = [
-            job.displayOn(aDisplay),
-            jobseeker.displayOn(aDisplay),
+            jobApplication.displayOn(aDisplay),
             date.toString()
         ].join(' ');
         return application;

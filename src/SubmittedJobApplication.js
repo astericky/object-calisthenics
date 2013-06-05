@@ -32,6 +32,7 @@ function SubmittedJobApplication(jobApplication, date) {
 
     return {
         equals : equals,
+        displayOn : displayOn,
         submittedBy : submittedBy,
         getJobApplication : getJobApplication,
         getDate : getDate

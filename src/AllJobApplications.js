@@ -39,15 +39,15 @@ function AllJobApplications() {
     }
 
     function select(fn) { // make this more clear
-        var applications = [];
+        var apps = [];
         var length = size();
 
         for (var i = 0; i < length; i++) {
             if (fn(jobApplications[i])) {
-                applications.push(jobApplications[i]);
+                apps.push(jobApplications[i]);
             }
         }
-        return new Applications(applications);
+        return new Applications(apps);
     }
 
     return {

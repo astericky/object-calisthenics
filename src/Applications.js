@@ -1,7 +1,12 @@
 function Applications(applications) {
 
     function displayOn(aDisplay) {
-        return aDisplay.display(applications);
+        var apps = [];
+        var length = size();
+        for (var i = 0; i < length; i++) {
+            apps.push(applications[i].displayOn(aDisplay));
+        }
+        return apps;
     }
 
     function equals(otherApplications) {
@@ -41,8 +46,8 @@ function Applications(applications) {
     }
 
     return {
-        displayOn : displayOn,
         equals : equals,
+        displayOn : displayOn,
         exists : exists,
         isSameSizeAs : isSameSizeAs,
         size : size,

@@ -1,6 +1,6 @@
 describe('Job Board', function() {
     var aDisplay = new EchoDisplay();
-    var applicationDisplay = new ApplicationDisplay();
+    var applicationDisplay = new SubmittedApplicationDisplay();
     var allPostedJobs = new AllPostedJobs();
     var allSavedJobs = new AllPostedJobs();
     var allResumes = new AllResumes();
@@ -138,8 +138,13 @@ describe('Job Board', function() {
         });
 
         it('should be able to see a listing of jobs for which they have applied', function() {
+            var expected = [
+                'Web Developer Chris Thu May 30 2013 00:00:00 GMT-0400 (EDT)', 
+                'Software Engineer Chris Thu May 30 2013 00:00:00 GMT-0400 (EDT)'
+            ].join('');
             var jobsApplications = allJobApplications.submittedBy(jobseeker);
-            console.log(jobsApplications);
+            var actual = jobsApplications.displayOn(applicationDisplay).join('');
+            expect(expected).toEqual(actual);
         });
 
         xit('should be able to see a listing of jobs saved for later viewing', function() {

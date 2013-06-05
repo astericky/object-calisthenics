@@ -25,8 +25,8 @@ function JobApplication(recruiterJob, jobseeker) {
     }
 
     return {
-        displayOn : displayOn,
         equals : equals,
+        displayOn : displayOn,
         submittedBy : submittedBy,
         getRecruiterJob : getRecruiterJob,
         getJobseeker : getJobseeker
