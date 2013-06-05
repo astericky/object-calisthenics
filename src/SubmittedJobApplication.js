@@ -1,4 +1,8 @@
 function SubmittedJobApplication(jobApplication, date) {
+
+    function submittedBy(jobseeker) {
+        return jobApplication.submittedBy(jobseeker);
+    }
    
     function equals(submittedJobApplication) {
         var otherJobApplication = submittedJobApplication.getJobApplication();
@@ -28,6 +32,7 @@ function SubmittedJobApplication(jobApplication, date) {
 
     return {
         equals : equals,
+        submittedBy : submittedBy,
         getJobApplication : getJobApplication,
         getDate : getDate
     };

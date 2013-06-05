@@ -4,6 +4,10 @@ function AllJobApplications() {
     function submit(jobApplication) {
         jobApplications.push(jobApplication);
     }
+
+    function submittedBy(jobseeker) {
+        return select(selectByJobseeker(jobseeker));
+    }
     
     function size() {
         return jobApplications.length;
@@ -16,6 +20,12 @@ function AllJobApplications() {
     function selectByRecruiter(recruiter) {
         return function(job) {
             return job.postedBy(recruiter);
+        };
+    }
+
+    function selectByJobseeker(jobseeker) {
+        return function(application) {
+            return application.submittedBy(jobseeker);
         };
     }
 
@@ -34,7 +44,7 @@ function AllJobApplications() {
 
         for (var i = 0; i < length; i++) {
             if (fn(jobApplications[i])) {
-                applicarions.push(postedJobs[i]);
+                applications.push(jobApplications[i]);
             }
         }
         return new Applications(applications);
@@ -43,6 +53,7 @@ function AllJobApplications() {
     return {
         exists : exists,
         submit : submit,
+        submittedBy : submittedBy,
         selectByDate : selectByDate
     };
 }

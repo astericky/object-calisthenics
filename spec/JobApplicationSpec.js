@@ -138,7 +138,8 @@ describe('Job Board', function() {
         });
 
         it('should be able to see a listing of jobs for which they have applied', function() {
-            
+            var jobsApplications = allJobApplications.submittedBy(jobseeker);
+            console.log(jobsApplications);
         });
 
         xit('should be able to see a listing of jobs saved for later viewing', function() {

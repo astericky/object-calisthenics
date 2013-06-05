@@ -9,7 +9,7 @@ function RecruiterJob(recruiter, job) {
     }
 
     function postedBy(jobRecruiter) {
-        return recruiter.equals(jobRecruiter);
+        return jobRecruiter.equals(recruiter);
     }
 
     function equals(recruiterJob) {

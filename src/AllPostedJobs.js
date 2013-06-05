@@ -1,8 +1,8 @@
 function AllPostedJobs() {
     var postedJobs = [];
 
-    function post(recruiterJob) {
-        postedJobs.push(recruiterJob);
+    function post(job) {
+        postedJobs.push(job);
     }
 
     function postedBy(recruiter) {

@@ -7,6 +7,10 @@ function JobApplication(recruiterJob, jobseeker) {
     function getJobseeker() {
         return jobseeker;
     }
+
+    function submittedBy(jobSeeker) {
+        return jobSeeker.equals(jobseeker);
+    }
     
     function equals(jobApplication) {
         var job = jobApplication.getRecruiterJob();
@@ -23,6 +27,7 @@ function JobApplication(recruiterJob, jobseeker) {
     return {
         displayOn : displayOn,
         equals : equals,
+        submittedBy : submittedBy,
         getRecruiterJob : getRecruiterJob,
         getJobseeker : getJobseeker
     };
