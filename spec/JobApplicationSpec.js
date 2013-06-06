@@ -33,13 +33,10 @@ describe('Job Board', function() {
     var recruiterJob2 = new RecruiterJob(recruiter, sameJob);
 
     // job application
-    var jobApplication = new JobApplication(recruiterJob1, jobseeker);
-    var differentJobApplication = new JobApplication(recruiterJob2, jobseeker);
     var date = new Date(2013, 04, 30);
-    var submittedJobApplication = new SubmittedJobApplication(jobApplication, date);
-    var sameSubmittedJobApplication = new SubmittedJobApplication(jobApplication, date);
-    var differentSubmittedJobApplication = new SubmittedJobApplication(differentJobApplication, date);
-    
+    var jobApplication = new JobApplication(recruiterJob1, jobseeker, date);
+    var differentJobApplication = new JobApplication(recruiterJob2, jobseeker, date);
+    var anotherJobApplication = new JobApplication(recruiterJob2, jobseeker, new Date());
     
     // post job 
     allPostedJobs.post(recruiterJob1);
@@ -102,14 +99,17 @@ describe('Job Board', function() {
         });
 
         xit('should be able to see jobseekers who have applied to their jobs by job', function() {
+            expect(jobApplications.postedBy(recruiter).displayOn(applicationDisplay)).toEqual(true);
         });
 
 
         xit('should be able to see jobseekers who have applied to their jobs by day', function() {
+            expect(jobApplications.applicantsByDate().equals(applicants)).toEqual(true);
         });
 
 
         xit('should be able to see jobseekers who have applied to a given job on a given day', function() {
+            expect(job.applicantsByDate().equals(applicants).toEqual(true);
         });
 
     });
