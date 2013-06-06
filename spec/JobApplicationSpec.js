@@ -1,6 +1,6 @@
 describe('Job Board', function() {
     var aDisplay = new EchoDisplay();
-    var applicationDisplay = new SubmittedApplicationDisplay();
+    var applicationDisplay = new ApplicationDisplay();
     var allPostedJobs = new AllPostedJobs();
     var allSavedJobs = new AllPostedJobs();
     var allResumes = new AllResumes();
@@ -43,29 +43,10 @@ describe('Job Board', function() {
     allPostedJobs.post(recruiterJob2);
 
     // submit job application
-    allJobApplications.submit(submittedJobApplication);
-    allJobApplications.submit(differentSubmittedJobApplication);
+    allJobApplications.submit(jobApplication);
+    allJobApplications.submit(differentJobApplication);
+    //allJobApplications.submit(anotherJobApplication);
 
-
-    it('exists', function() {
-        expect(allPostedJobs).toBeDefined(); 
-    });
-
-    xdescribe('Name', function() {
-        it('exist', function() {
-            expect(jobseekerName).toBeDefined();
-        });
-    });
-
-    describe('Id', function() {
-        it('should be equal to another id with the same value', function() {
-            expect(id.equals(sameId)).toEqual(true);
-        });
-
-        it('should not be equal to another ID with a different value', function() {
-            expect(id.equals(differentId)).toEqual(false);
-        });
-    });
 
     describe('Job', function() {
         it('shows its title', function() {
@@ -99,17 +80,21 @@ describe('Job Board', function() {
         });
 
         xit('should be able to see jobseekers who have applied to their jobs by job', function() {
-            expect(jobApplications.postedBy(recruiter).displayOn(applicationDisplay)).toEqual(true);
+            var applicationsByRecruiter = allJobApplications.byRecruiter(recruiter);
+            var applicationsByJob = applicationsByRecruiter.byJob(job);
+            applicationsByJob = applicationsByJob.displayOn(applicationDisplay).join(''); 
+            
+            expect(applicationsByJob).toEqual(test);
         });
 
 
         xit('should be able to see jobseekers who have applied to their jobs by day', function() {
-            expect(jobApplications.applicantsByDate().equals(applicants)).toEqual(true);
+            expect(allJobApplications.applicantsByDate().equals(applicants)).toEqual(true);
         });
 
 
         xit('should be able to see jobseekers who have applied to a given job on a given day', function() {
-            expect(job.applicantsByDate().equals(applicants).toEqual(true);
+            expect(job.applicantsByDate().equals(applicants)).toEqual(true);
         });
 
     });
@@ -131,7 +116,7 @@ describe('Job Board', function() {
         });
 
         it('should be able to submit a job application that does not require a resume', function() {
-            expect(allJobApplications.exists(submittedJobApplication)).toEqual(true);
+            expect(allJobApplications.exists(jobApplication)).toEqual(true);
         });
         
         xit('should be able to submit a job application that does require a resume', function() {

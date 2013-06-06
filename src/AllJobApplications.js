@@ -17,6 +17,12 @@ function AllJobApplications() {
         return true;
     }
 
+    function selectByApplication(application) {
+        return function(otherApplication) {
+            return application.equals(otherApplication);
+        };
+    }
+
     function selectByRecruiter(recruiter) {
         return function(job) {
             return job.postedBy(recruiter);
