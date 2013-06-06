@@ -34,9 +34,9 @@ describe('Job Board', function() {
 
     // job application
     var date = new Date(2013, 04, 30);
-    var jobApplication = new JobApplication(recruiterJob1, jobseeker, date);
-    var differentJobApplication = new JobApplication(recruiterJob2, jobseeker, date);
-    var anotherJobApplication = new JobApplication(recruiterJob2, jobseeker, new Date());
+    var jobApplication = new JobApplication(job, recruiter, jobseeker, date);
+    var differentJobApplication = new JobApplication(differentJob, recruiter, jobseeker, date);
+    var anotherJobApplication = new JobApplication(job, recruiter, jobseeker, new Date());
     
     // post job 
     allPostedJobs.post(recruiterJob1);
@@ -124,8 +124,8 @@ describe('Job Board', function() {
 
         it('should be able to see a listing of jobs for which they have applied', function() {
             var expected = [
-                'Web Developer Chris Thu May 30 2013 00:00:00 GMT-0400 (EDT)', 
-                'Software Engineer Chris Thu May 30 2013 00:00:00 GMT-0400 (EDT)'
+                'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean', 
+                'Chris Software Engineer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean'
             ].join('');
             var jobsApplications = allJobApplications.submittedBy(jobseeker);
             var actual = jobsApplications.displayOn(applicationDisplay).join('');

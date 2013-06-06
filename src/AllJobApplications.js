@@ -14,7 +14,7 @@ function AllJobApplications() {
     }
 
     function exists(jobApplication) {
-        return true;
+        return any(selectByApplication(jobApplication));
     }
 
     function selectByApplication(application) {
@@ -42,6 +42,16 @@ function AllJobApplications() {
     }
 
     function selectByDate(date) {
+    }
+
+    function any(fn) { 
+        var length = size();
+        for (var i = 0; i < length; i++) {
+            if (!fn(jobApplications[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 
     function select(fn) { // make this more clear

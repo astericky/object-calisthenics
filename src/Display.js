@@ -22,13 +22,13 @@ function EchoDisplay() {
 
 function ApplicationDisplay() {
 
-    function display(job, jobseeker, date) {
-        //console.log(job);
+    function display(jobseeker, job, date, recruiter) {
         var aDisplay = new EchoDisplay();
         var application = [
-            job.displayOn(aDisplay),
             jobseeker.displayOn(aDisplay),
-            date.toString()
+            job.displayOn(aDisplay),
+            date.toString(),
+            recruiter.displayOn(aDisplay)
         ].join(' ');
         return application;
     }
