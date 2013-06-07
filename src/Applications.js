@@ -29,15 +29,15 @@ function Applications(applications) {
         return any(otherApplications.exists);
     }
 
-    function submittedBy(jobseeker) {
+    function findByJobseeker(jobseeker) {
         return select(selectByJobseeker(jobseeker));
     }
 
-    function byRecruiter(recruiter) {
+    function findByRecruiter(recruiter) {
         return select(selectByRecruiter(recruiter));
     }
 
-    function byJob(job) {
+    function findByJob(job) {
         return select(selectByJob(job));
     }
 
@@ -61,6 +61,7 @@ function Applications(applications) {
 
     function selectByJob(job) {
         return function (application) {
+            console.log(application.isJobEqual(job));
             return application.isJobEqual(job);
         };
     }
@@ -90,7 +91,7 @@ function Applications(applications) {
                 apps.push(applications[i]);
             }
         }
-        //console.log(apps);
+        console.log(apps);
         return new Applications(apps);
     }
 
@@ -100,8 +101,8 @@ function Applications(applications) {
         exists : exists,
         isSameSizeAs : isSameSizeAs,
         size : size,
-        submittedBy : submittedBy,
-        byRecruiter : byRecruiter,
-        byJob : byJob,
+        findByJobseeker : findByJobseeker,
+        findByRecruiter : findByRecruiter,
+        findByJob : findByJob,
     };
 }

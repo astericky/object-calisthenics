@@ -1,5 +1,14 @@
 function AllJobApplications() {
     var jobApplications = [];
+
+    function displayOn(aDisplay) {
+        var apps = [];
+        var length = size();
+        for (var i = 0; i < length; i++) {
+            apps.push(jobApplications[i].displayOn(aDisplay));
+        }
+        return apps;
+    }
     
     function submit(jobApplication) {
         if ((!jobApplication.isResumeRequired()) || 
@@ -9,18 +18,7 @@ function AllJobApplications() {
         }
     }
 
-    function submittedBy(jobseeker) {
-        return select(selectByJobseeker(jobseeker));
-    }
 
-    function byRecruiter(recruiter) {
-        return select(selectByRecruiter(recruiter));
-    }
-
-    function byJob(job) {
-        return select(selectByJob(job));
-    }
-    
     function size() {
         return jobApplications.length;
     }
@@ -29,10 +27,18 @@ function AllJobApplications() {
         return any(selectByApplication(jobApplication));
     }
 
-    function selectByApplication(application) {
-        return function (otherApplication) {
-            return application.equals(otherApplication);
-        };
+
+
+    function findByJobseeker(jobseeker) {
+        return select(selectByJobseeker(jobseeker));
+    }
+
+    function findByRecruiter(recruiter) {
+        return select(selectByRecruiter(recruiter));
+    }
+
+    function findByJob(job) {
+        return select(selectByJob(job));
     }
 
     function selectByRecruiter(recruiter) {
@@ -53,11 +59,17 @@ function AllJobApplications() {
         };
     }
 
-    /*function selectByDate(date) 
+    function selectByApplication(application) {
+        return function (otherApplication) {
+            return application.equals(otherApplication);
+        };
+    }
+
+    function selectByDate(date) {
         return function (application) {
             return application.isDateEqual(date);
         };
-    }*/
+    }
 
     function any(fn) { 
         var length = size();
@@ -82,10 +94,11 @@ function AllJobApplications() {
     }
 
     return {
+        displayOn : displayOn,
         exists : exists,
         submit : submit,
-        submittedBy : submittedBy,
-        byRecruiter : byRecruiter,
-        byJob : byJob,
+        findByJobseeker : findByJobseeker,
+        findByRecruiter : findByRecruiter,
+        findByJob : findByJob,
     };
 }

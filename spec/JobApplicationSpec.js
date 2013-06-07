@@ -22,12 +22,13 @@ describe('Job Board', function() {
     var jobseeker = new Jobseeker(jobseekerName, sameId);
 
     // job title
+    var jrWebDeveloper = new JobTitle('Jr. Web Developer');
     var webDeveloper = new JobTitle('Web Developer');
     var softwareEngineer = new JobTitle('Software Engineer');
 
     // job
     var job = new ATSJob(webDeveloper, new Id(11));
-    var sameJob = new ATSJob(softwareEngineer, new Id(11));
+    var sameJob = new ATSJob(jrWebDeveloper, new Id(11));
     var differentJob = new ATSJob(softwareEngineer, new Id(12));
     var jReqJob = new JReqJob(softwareEngineer, differentId);
 
@@ -96,8 +97,9 @@ describe('Job Board', function() {
             var test = [ 
                 'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean',
             ].join('');
-            var applicationsByRecruiter = allJobApplications.byRecruiter(recruiter);
-            var applicationsByJob = applicationsByRecruiter.byJob(job);
+            var applicationsByRecruiter = allJobApplications.findByRecruiter(recruiter);
+            var applicationsByJob = applicationsByRecruiter.findByJob(job);
+            console.log(job.displayOn(aDisplay));
             console.log(applicationsByJob);
             //applicationsByJob = applicationsByJob.displayOn(applicationDisplay).join(''); 
             //console.log(applicationsByJob);
@@ -143,7 +145,7 @@ describe('Job Board', function() {
                 'Chris Software Engineer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean',
                 'Chris Software Engineer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean'
             ].join('');
-            var jobsApplications = allJobApplications.submittedBy(jobseeker);
+            var jobsApplications = allJobApplications.findByJobseeker(jobseeker);
             var actual = jobsApplications.displayOn(applicationDisplay).join('');
             expect(expected).toEqual(actual);
         });
@@ -156,7 +158,14 @@ describe('Job Board', function() {
     xit('should be able to see jobseekers who have applied to jobs on any given day', function() {
     });
 
-    xit('should be able to see aggregate job application numbers by job and recruiter', function() {
+    it('should be able to see aggregate job application numbers by job and recruiter', function() {
+        var expected = [
+                'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean', 
+                'Chris Software Engineer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean',
+                'Chris Software Engineer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean'
+        ].join('');
+        var actual = allJobApplications.displayOn(applicationDisplay).join('');
+        expect(expected).toEqual(actual); 
     });
 
 });
