@@ -91,9 +91,13 @@ describe('Job Board', function() {
         });
 
         it('should be able to see jobseekers who have applied to their jobs by job', function() {
+            var test = [ 
+                'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean',
+            ].join('');
             var applicationsByRecruiter = allJobApplications.byRecruiter(recruiter);
             var applicationsByJob = applicationsByRecruiter.byJob(job);
             applicationsByJob = applicationsByJob.displayOn(applicationDisplay).join(''); 
+            console.log(applicationsByJob);
             expect(applicationsByJob).toEqual(test);
         });
 

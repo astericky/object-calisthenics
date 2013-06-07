@@ -4,12 +4,12 @@ function JobApplication(job, jobseeker, date, recruiter) {
         return jobSeeker.equals(jobseeker);
     }
 
-    function isRecruiter(recruiter) {
-        return recruiter.equals(recruiter);
+    function isRecruiterEqual(otherRecruiter) {
+        return recruiter.equals(otherRecruiter);
     }
 
-    function isJob(job) {
-        return job.equals(job);
+    function isJobEqual(otherJob) {
+        return job.equals(otherJob);
     }
 
     function isDateEqual(otherDate) {
@@ -56,8 +56,8 @@ function JobApplication(job, jobseeker, date, recruiter) {
         equals : equals,
         displayOn : displayOn,
         submittedBy : submittedBy,
-        isRecruiter : isRecruiter,
-        isJob : isJob,
+        isRecruiterEqual : isRecruiterEqual,
+        isJobEqual : isJobEqual,
         isDateEqual : isDateEqual,
         isResumeRequired : isResumeRequired,
         getJob : getJob,
@@ -73,11 +73,11 @@ function JobApplicationWithResume(job, jobseeker, date, recruiter, resume) {
         return jobSeeker.equals(jobseeker);
     }
 
-    function isRecruiter(recruiter) {
+    function isRecruiterEqual(recruiter) {
         return recruiter.equals(recruiter);
     }
 
-    function isJob(job) {
+    function isJobEqual(job) {
         return job.equals(job);
     }
 
@@ -130,6 +130,9 @@ function JobApplicationWithResume(job, jobseeker, date, recruiter, resume) {
         equals : equals,
         displayOn : displayOn,
         submittedBy : submittedBy,
+        isRecruiterEqual : isRecruiterEqual,
+        isJobEqual : isJobEqual,
+        isDateEqual : isDateEqual,
         isResumeRequired : isResumeRequired,
         resumeExists : resumeExists,
         getJob : getJob,

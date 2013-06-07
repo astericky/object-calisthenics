@@ -30,31 +30,34 @@ function AllJobApplications() {
     }
 
     function selectByApplication(application) {
-        return function(otherApplication) {
+        return function (otherApplication) {
             return application.equals(otherApplication);
         };
     }
 
     function selectByRecruiter(recruiter) {
-        return function(application) {
-            return application.isRecruiter(recruiter);
+        return function (application) {
+            return application.isRecruiterEqual(recruiter);
         };
     }
 
     function selectByJobseeker(jobseeker) {
-        return function(application) {
+        return function (application) {
             return application.submittedBy(jobseeker);
         };
     }
 
     function selectByJob(job) {
         return function (application) {
-            return application.isJob(job);
-        }
+            return application.isJobEqual(job);
+        };
     }
 
-    function selectByDate(date) {
-    }
+    /*function selectByDate(date) 
+        return function (application) {
+            return application.isDateEqual(date);
+        };
+    }*/
 
     function any(fn) { 
         var length = size();
@@ -84,6 +87,5 @@ function AllJobApplications() {
         submittedBy : submittedBy,
         byRecruiter : byRecruiter,
         byJob : byJob,
-        selectByDate : selectByDate
     };
 }
