@@ -2,15 +2,23 @@ function AllJobApplications() {
     var jobApplications = [];
     
     function submit(jobApplication) {
-        if (!jobApplication.isResumeRequired() || 
-            jobApplication.isResumeRequired() && 
-            jobApplication.resumeExists()) {
+        if ((!jobApplication.isResumeRequired()) || 
+            (jobApplication.isResumeRequired() && 
+            jobApplication.resumeExists())) {
             jobApplications.push(jobApplication);
         }
     }
 
     function submittedBy(jobseeker) {
         return select(selectByJobseeker(jobseeker));
+    }
+
+    function byRecruiter(recruiter) {
+        return select(selectByRecruiter(recruiter));
+    }
+
+    function byJob(job) {
+        return select(selectByJob(job));
     }
     
     function size() {
@@ -28,8 +36,8 @@ function AllJobApplications() {
     }
 
     function selectByRecruiter(recruiter) {
-        return function(job) {
-            return job.postedBy(recruiter);
+        return function(application) {
+            return application.isRecruiter(recruiter);
         };
     }
 
@@ -40,8 +48,8 @@ function AllJobApplications() {
     }
 
     function selectByJob(job) {
-        return function (otherJob) {
-            return job.equals(otherJob);
+        return function (application) {
+            return application.isJob(job);
         }
     }
 
@@ -74,6 +82,8 @@ function AllJobApplications() {
         exists : exists,
         submit : submit,
         submittedBy : submittedBy,
+        byRecruiter : byRecruiter,
+        byJob : byJob,
         selectByDate : selectByDate
     };
 }

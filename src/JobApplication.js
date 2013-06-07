@@ -1,4 +1,36 @@
-function JobApplication(job, recruiter, jobseeker, date) {
+function JobApplication(job, jobseeker, date, recruiter) {
+
+    function submittedBy(jobSeeker) {
+        return jobSeeker.equals(jobseeker);
+    }
+
+    function isRecruiter(recruiter) {
+        return recruiter.equals(recruiter);
+    }
+
+    function isJob(job) {
+        return job.equals(job);
+    }
+
+    function isDateEqual(otherDate) {
+        return date.getTime() === otherDate.getTime();
+    }
+    
+    function equals(jobApplication) {
+        var job = jobApplication.getJob();
+        var seeker = jobApplication.getJobseeker();
+        var theRecruiter = jobApplication.getRecruiter();
+        var date = jobApplication.getDate();
+        var dateEqual = isDateEqual(date);
+        var jobsEqual = job.equals(job);
+        var jobseekersEqual = jobseeker.equals(seeker);
+        var recruiterEqual = theRecruiter.equals(recruiter);
+        return jobsEqual && jobseekersEqual && dateEqual;
+    }
+
+    function displayOn(aDisplay) {
+        return aDisplay.display(jobseeker, job, date, recruiter);
+    }
 
     function getJob() {
         return job;
@@ -16,9 +48,43 @@ function JobApplication(job, recruiter, jobseeker, date) {
         return date;
     }
 
+    function isResumeRequired() {
+        return false;
+    }
+
+    return {
+        equals : equals,
+        displayOn : displayOn,
+        submittedBy : submittedBy,
+        isRecruiter : isRecruiter,
+        isJob : isJob,
+        isDateEqual : isDateEqual,
+        isResumeRequired : isResumeRequired,
+        getJob : getJob,
+        getRecruiter : getRecruiter,
+        getJobseeker : getJobseeker,
+        getDate : getDate
+    };
+}
+
+function JobApplicationWithResume(job, jobseeker, date, recruiter, resume) {
+
     function submittedBy(jobSeeker) {
         return jobSeeker.equals(jobseeker);
     }
+
+    function isRecruiter(recruiter) {
+        return recruiter.equals(recruiter);
+    }
+
+    function isJob(job) {
+        return job.equals(job);
+    }
+
+    function isDateEqual(otherDate) {
+        return date.getTime() === otherDate.getTime();
+    }
+
     
     function equals(jobApplication) {
         var job = jobApplication.getJob();
@@ -32,18 +98,40 @@ function JobApplication(job, recruiter, jobseeker, date) {
         return jobsEqual && jobseekersEqual && dateEqual;
     }
 
-    function isDateEqual(otherDate) {
-        return date.getTime() === otherDate.getTime();
-    }
-
     function displayOn(aDisplay) {
         return aDisplay.display(jobseeker, job, date, recruiter);
+    }
+
+    function isResumeRequired() {
+        return true;
+    }
+
+    function resumeExists() {
+        return typeof resume !== 'undefined';
+    }
+
+    function getJob() {
+        return job;
+    }
+
+    function getRecruiter() {
+        return recruiter;
+    }
+
+    function getJobseeker() {
+        return jobseeker;
+    }
+
+    function getDate() {
+        return date;
     }
 
     return {
         equals : equals,
         displayOn : displayOn,
         submittedBy : submittedBy,
+        isResumeRequired : isResumeRequired,
+        resumeExists : resumeExists,
         getJob : getJob,
         getRecruiter : getRecruiter,
         getJobseeker : getJobseeker,

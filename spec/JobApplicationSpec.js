@@ -24,9 +24,18 @@ describe('Job Board', function() {
     var softwareEngineer = new JobTitle('Software Engineer');
 
     // job
-    var job = new Job(webDeveloper, new Id(11));
-    var sameJob = new Job(softwareEngineer, new Id(11));
-    var differentJob = new Job(softwareEngineer, new Id(12));
+    var job = new ATSJob(webDeveloper, new Id(11));
+    var sameJob = new ATSJob(softwareEngineer, new Id(11));
+    var differentJob = new ATSJob(softwareEngineer, new Id(12));
+    var jReqJob = new JReqJob(softwareEngineer, differentId);
+
+    // resume
+    var resume = new Resume(new Id(200));
+    var jrWebDeveloperResume = new JobseekerResume(jobseeker, resume);
+    allResumes.post(jrWebDeveloperResume);
+    var resume2 = new Resume(new Id(200));
+    var someOtherResume = new JobseekerResume(jobseeker, resume2);
+    var resume3;
 
     // recruiter job
     var recruiterJob1 = new RecruiterJob(recruiter, job);
@@ -34,9 +43,10 @@ describe('Job Board', function() {
 
     // job application
     var date = new Date(2013, 04, 30);
-    var jobApplication = new JobApplication(job, recruiter, jobseeker, date);
-    var differentJobApplication = new JobApplication(differentJob, recruiter, jobseeker, date);
-    var anotherJobApplication = new JobApplication(job, recruiter, jobseeker, new Date());
+    var jobApplication = new JobApplication(job, jobseeker, date, recruiter);
+    var differentJobApplication = new JobApplication(differentJob, jobseeker, date, recruiter);
+    var anotherJobApplication = new JobApplicationWithResume(jReqJob, jobseeker, new Date(), recruiter);
+    var jobApplicationWithResume = new JobApplicationWithResume(jReqJob, jobseeker, date, recruiter, resume);
     
     // post job 
     allPostedJobs.post(recruiterJob1);
@@ -45,7 +55,8 @@ describe('Job Board', function() {
     // submit job application
     allJobApplications.submit(jobApplication);
     allJobApplications.submit(differentJobApplication);
-    //allJobApplications.submit(anotherJobApplication);
+    allJobApplications.submit(jobApplicationWithResume);
+    allJobApplications.submit(anotherJobApplication);
 
 
     describe('Job', function() {
@@ -72,21 +83,19 @@ describe('Job Board', function() {
             expect(allPostedJobs.exists(recruiterJob1)).toBeTruthy();
         });
 
-        it('should be able to see a listing of the jobs they posted', function() {
+        it('should see a listing of the jobs they posted', function() {
             var sameJobs = [recruiterJob1, recruiterJob2];
             var jobs = new Jobs(sameJobs);
             var jobsPostedByRecruiter = allPostedJobs.postedBy(recruiter);
             expect(jobsPostedByRecruiter.equals(jobs)).toEqual(true);
         });
 
-        xit('should be able to see jobseekers who have applied to their jobs by job', function() {
+        it('should be able to see jobseekers who have applied to their jobs by job', function() {
             var applicationsByRecruiter = allJobApplications.byRecruiter(recruiter);
             var applicationsByJob = applicationsByRecruiter.byJob(job);
             applicationsByJob = applicationsByJob.displayOn(applicationDisplay).join(''); 
-            
             expect(applicationsByJob).toEqual(test);
         });
-
 
         xit('should be able to see jobseekers who have applied to their jobs by day', function() {
             expect(allJobApplications.applicantsByDate().equals(applicants)).toEqual(true);
@@ -105,26 +114,26 @@ describe('Job Board', function() {
             expect(jobseeker.displayOn(aDisplay)).toEqual(name);
         });
 
-        xit('can post a resume', function() {
-            var resumePostedByJobseeker;
-            var resume = new Resume(new Id(200));
-            var jrWebDeveloperResume = new JobseekerResume(jobseeker, resume);
-            allResumes.post(jrWebDeveloperResume);
-            var resume2 = new Resume(new Id(200));
-            var someOtherResume = new JobseekerResume(jobseeker, resume2);
+        it('should add a resumes', function() {
             expect(allResumes.resumeExists(someOtherResume)).toEqual(true);
         });
 
-        it('should be able to submit a job application that does not require a resume', function() {
+        it('should submit a job application that does not require a resume', function() {
             expect(allJobApplications.exists(jobApplication)).toEqual(true);
         });
         
-        xit('should be able to submit a job application that does require a resume', function() {
+        it('should submit a job application that does require a resume', function() {
+            expect(allJobApplications.exists(jobApplicationWithResume)).toEqual(true);
         });
 
-        it('should be able to see a listing of jobs for which they have applied', function() {
+        it('should not submit application for jobs that require a resume witout a resume', function() {
+            expect(allJobApplications.exists(anotherJobApplication)).toEqual(false);
+        });
+
+        it('should see a listing of jobs for which they have applied', function() {
             var expected = [
                 'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean', 
+                'Chris Software Engineer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean',
                 'Chris Software Engineer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean'
             ].join('');
             var jobsApplications = allJobApplications.submittedBy(jobseeker);

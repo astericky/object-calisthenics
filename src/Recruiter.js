@@ -1,9 +1,5 @@
 function Recruiter(name, id) {
 
-    /*function post(job, toJobBoard) {
-        toJobBoard.post(job);
-    }*/
-
     function equals(recruiter) {
         return id.equals(recruiter.getId());
     }
