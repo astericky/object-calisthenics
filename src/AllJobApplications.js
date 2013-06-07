@@ -2,7 +2,11 @@ function AllJobApplications() {
     var jobApplications = [];
     
     function submit(jobApplication) {
-        jobApplications.push(jobApplication);
+        if (!jobApplication.isResumeRequired() || 
+            jobApplication.isResumeRequired() && 
+            jobApplication.resumeExists()) {
+            jobApplications.push(jobApplication);
+        }
     }
 
     function submittedBy(jobseeker) {
