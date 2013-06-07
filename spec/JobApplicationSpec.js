@@ -8,7 +8,9 @@ describe('Job Board', function() {
 
     // name
     var jobseekerName = new Name('Chris');
+    var jobseekerName2 = new Name('Daniel');
     var recruiterName = new Name('Sean');
+    var recruiterName2 = new Name('Barb');
 
     // id
     var id = new Id(1);
@@ -96,8 +98,9 @@ describe('Job Board', function() {
             ].join('');
             var applicationsByRecruiter = allJobApplications.byRecruiter(recruiter);
             var applicationsByJob = applicationsByRecruiter.byJob(job);
-            applicationsByJob = applicationsByJob.displayOn(applicationDisplay).join(''); 
             console.log(applicationsByJob);
+            //applicationsByJob = applicationsByJob.displayOn(applicationDisplay).join(''); 
+            //console.log(applicationsByJob);
             expect(applicationsByJob).toEqual(test);
         });
 

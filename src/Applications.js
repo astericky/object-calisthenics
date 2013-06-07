@@ -74,7 +74,7 @@ function Applications(applications) {
     function any(fn) { 
         var length = size();
         for (var i = 0; i < length; i++) {
-            if (!fn(jobs[i])) {
+            if (!fn(applications[i])) {
                 return false;
             }
         }
@@ -90,6 +90,7 @@ function Applications(applications) {
                 apps.push(applications[i]);
             }
         }
+        //console.log(apps);
         return new Applications(apps);
     }
 
