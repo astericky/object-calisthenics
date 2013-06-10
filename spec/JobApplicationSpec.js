@@ -46,7 +46,9 @@ describe('Job Board', function() {
 
     // job application
     var date = new Date(2013, 04, 30);
+    var anotherDate = new Date(2013, 05, 30);
     var jobApplication = new JobApplication(job, jobseeker, date, recruiter);
+    var jobApplication2 = new JobApplication(differentJob, jobseeker, anotherDate, recruiter);
     var differentJobApplication = new JobApplication(differentJob, jobseeker, date, recruiter);
     var anotherJobApplication = new JobApplicationWithResume(jReqJob, jobseeker, new Date(), recruiter);
     var jobApplicationWithResume = new JobApplicationWithResume(jReqJob, jobseeker, date, recruiter, resume);
@@ -94,25 +96,25 @@ describe('Job Board', function() {
         });
 
         it('should be able to see jobseekers who have applied to their jobs by job', function() {
-            var test = [ 
+            var expected = [ 
                 'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean',
             ].join('');
             var applicationsByRecruiter = allJobApplications.findByRecruiter(recruiter);
             var applicationsByJob = applicationsByRecruiter.findByJob(job);
+            var actual = applicationsByJob.displayOn(applicationDisplay).join('');
             console.log(job.displayOn(aDisplay));
-            console.log(applicationsByJob);
-            //applicationsByJob = applicationsByJob.displayOn(applicationDisplay).join(''); 
-            //console.log(applicationsByJob);
-            expect(applicationsByJob).toEqual(test);
+            expect(actual).toEqual(expected);
         });
 
         xit('should be able to see jobseekers who have applied to their jobs by day', function() {
             expect(allJobApplications.applicantsByDate().equals(applicants)).toEqual(true);
         });
 
-
         xit('should be able to see jobseekers who have applied to a given job on a given day', function() {
-            expect(job.applicantsByDate().equals(applicants)).toEqual(true);
+            var expected = [
+            ];
+            var actual = allJobApplications.findByDate(date);
+            expect(expected).toEqual(actual);
         });
 
     });

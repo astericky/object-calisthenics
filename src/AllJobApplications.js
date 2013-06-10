@@ -27,8 +27,6 @@ function AllJobApplications() {
         return any(selectByApplication(jobApplication));
     }
 
-
-
     function findByJobseeker(jobseeker) {
         return select(selectByJobseeker(jobseeker));
     }

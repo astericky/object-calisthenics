@@ -61,7 +61,6 @@ function Applications(applications) {
 
     function selectByJob(job) {
         return function (application) {
-            console.log(application.isJobEqual(job));
             return application.isJobEqual(job);
         };
     }
@@ -87,11 +86,10 @@ function Applications(applications) {
         var length = size();
 
         for (var i = 0; i < length; i++) {
-            if (fn(applications[i])) {
+            if (fn(applications[i]) === true) {
                 apps.push(applications[i]);
             }
         }
-        console.log(apps);
         return new Applications(apps);
     }
 
