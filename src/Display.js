@@ -20,6 +20,23 @@ function EchoDisplay() {
     };
 }
 
+function SavedJobsDisplay() {
+
+    function display(data) {
+        var savedJobs = [];
+        var length = data.length;
+        var aDisplay = new EchoDisplay();
+
+        for(var i = 0; i < length; i++) {
+            savedJobs.push(data[i].displayOn(aDisplay));
+        }
+        return savedJobs;
+    }
+    return {
+        display: display
+    };
+}
+
 function ApplicationDisplay() {
 
     function display(jobseeker, job, date, recruiter) {

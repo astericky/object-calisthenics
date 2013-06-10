@@ -1,6 +1,7 @@
 describe('Job Board', function() {
     var aDisplay = new EchoDisplay();
     var applicationDisplay = new ApplicationDisplay();
+    var savedJobsDisplay = new SavedJobsDisplay();
     var allPostedJobs = new AllPostedJobs();
     var allSavedJobs = new AllPostedJobs();
     var allResumes = new AllResumes();
@@ -33,6 +34,11 @@ describe('Job Board', function() {
     var differentJob = new ATSJob(softwareEngineer, new Id(12));
     var jReqJob = new JReqJob(softwareEngineer, differentId);
 
+    // saved job
+    jobseeker.save(job);
+    jobseeker.save(differentJob);
+    jobseeker.save(jReqJob);
+
     // resume
     var resume = new Resume(new Id(200));
     var jrWebDeveloperResume = new JobseekerResume(jobseeker, resume);
@@ -53,7 +59,7 @@ describe('Job Board', function() {
     var differentJobApplication = new JobApplication(differentJob, jobseeker, date, recruiter);
     var anotherJobApplication = new JobApplicationWithResume(jReqJob, jobseeker, new Date(), recruiter);
     var jobApplicationWithResume = new JobApplicationWithResume(jReqJob, jobseeker, date, recruiter, resume);
-    var differentJobApplicationWithResume(jReqJob, jobseeker, anotherDate, recruiter2, resume2);
+    var differentJobApplicationWithResume = new JobApplicationWithResume(jReqJob, jobseeker, anotherDate, recruiter2, resume2);
     
     // post job 
     allPostedJobs.post(recruiterJob1);
@@ -100,16 +106,14 @@ describe('Job Board', function() {
         });
 
         it('should be able to see jobseekers who have applied to their jobs by job', function() { // HELP!!!
-            var expected = [ 
-                'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean',
-            ].join('');
+            var expected = 'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean';
             var applicationsByRecruiter = allJobApplications.findByRecruiter(recruiter);
             var applicationsByJob = applicationsByRecruiter.findByJob(job);
             var actual = applicationsByJob.displayOn(applicationDisplay).join('');
             expect(expected).toEqual(actual);
         });
 
-        it('should be able to see jobseekers who have applied to their jobs by day', function() {
+        xit('should be able to see jobseekers who have applied to their jobs by day', function() {
             var expected = [ 
                 'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean',
             ].join('');
@@ -158,7 +162,10 @@ describe('Job Board', function() {
             expect(expected).toEqual(actual);
         });
 
-        xit('should be able to see a listing of jobs saved for later viewing', function() {
+        it('should be able to see a listing of jobs saved for later viewing', function() {
+            var expected = 'Web DeveloperSoftware EngineerSoftware Engineer';
+            var actual = jobseeker.displaySavedJobsOn(savedJobsDisplay).join('');
+            expect(expected).toEqual(actual);
         });
 
     });
