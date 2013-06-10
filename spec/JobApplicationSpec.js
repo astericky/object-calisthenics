@@ -19,6 +19,7 @@ describe('Job Board', function() {
 
     // recruiter & jobseeker
     var recruiter = new Recruiter(recruiterName, id); 
+    var recruiter2 = new Recruiter(recruiterName2, differentId);
     var jobseeker = new Jobseeker(jobseekerName, sameId);
 
     // job title
@@ -52,6 +53,7 @@ describe('Job Board', function() {
     var differentJobApplication = new JobApplication(differentJob, jobseeker, date, recruiter);
     var anotherJobApplication = new JobApplicationWithResume(jReqJob, jobseeker, new Date(), recruiter);
     var jobApplicationWithResume = new JobApplicationWithResume(jReqJob, jobseeker, date, recruiter, resume);
+    var differentJobApplicationWithResume(jReqJob, jobseeker, anotherDate, recruiter2, resume2);
     
     // post job 
     allPostedJobs.post(recruiterJob1);
@@ -61,6 +63,8 @@ describe('Job Board', function() {
     allJobApplications.submit(jobApplication);
     allJobApplications.submit(differentJobApplication);
     allJobApplications.submit(jobApplicationWithResume);
+
+    // does not submit
     allJobApplications.submit(anotherJobApplication);
 
 
@@ -95,18 +99,20 @@ describe('Job Board', function() {
             expect(jobsPostedByRecruiter.equals(jobs)).toEqual(true);
         });
 
-        it('should be able to see jobseekers who have applied to their jobs by job', function() {
+        it('should be able to see jobseekers who have applied to their jobs by job', function() { // HELP!!!
             var expected = [ 
                 'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean',
             ].join('');
             var applicationsByRecruiter = allJobApplications.findByRecruiter(recruiter);
             var applicationsByJob = applicationsByRecruiter.findByJob(job);
             var actual = applicationsByJob.displayOn(applicationDisplay).join('');
-            console.log(job.displayOn(aDisplay));
-            expect(actual).toEqual(expected);
+            expect(expected).toEqual(actual);
         });
 
-        xit('should be able to see jobseekers who have applied to their jobs by day', function() {
+        it('should be able to see jobseekers who have applied to their jobs by day', function() {
+            var expected = [ 
+                'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean',
+            ].join('');
             expect(allJobApplications.applicantsByDate().equals(applicants)).toEqual(true);
         });
 

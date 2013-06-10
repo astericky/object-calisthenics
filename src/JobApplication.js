@@ -9,10 +9,6 @@ function JobApplication(job, jobseeker, date, recruiter) {
     }
 
     function isJobEqual(otherJob) {
-        var aDisplay = new EchoDisplay();
-        console.log(otherJob.getId().displayOn(aDisplay));
-        console.log(job.getId().displayOn(aDisplay));
-        console.log(job.equals(otherJob));
         return job.equals(otherJob);
     }
 
@@ -81,8 +77,8 @@ function JobApplicationWithResume(job, jobseeker, date, recruiter, resume) {
         return recruiter.equals(recruiter);
     }
 
-    function isJobEqual(job) {
-        return job.equals(job);
+    function isJobEqual(otherJob) {
+        return job.equals(otherJob);
     }
 
     function isDateEqual(otherDate) {

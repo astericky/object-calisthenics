@@ -65,16 +65,16 @@ function Applications(applications) {
         };
     }
 
-    /*function selectByDate(date) 
+    function selectByDate(date) { 
         return function (application) {
             return application.isDateEqual(date);
         };
-    }*/
+    }
 
     function any(fn) { 
         var length = size();
         for (var i = 0; i < length; i++) {
-            if (!fn(applications[i])) {
+            if (fn(applications[i])) {
                 return false;
             }
         }
@@ -86,7 +86,7 @@ function Applications(applications) {
         var length = size();
 
         for (var i = 0; i < length; i++) {
-            if (fn(applications[i]) === true) {
+            if (fn(applications[i])) {
                 apps.push(applications[i]);
             }
         }
