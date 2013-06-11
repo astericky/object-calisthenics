@@ -41,6 +41,10 @@ function Applications(applications) {
         return select(selectByJob(job));
     }
 
+    function findByDate(date) {
+        return select(selectByDate(date));
+    }
+
     function selectByApplication(application) {
         return function(otherApplication) {
             return application.equals(otherApplication);
@@ -102,5 +106,6 @@ function Applications(applications) {
         findByJobseeker : findByJobseeker,
         findByRecruiter : findByRecruiter,
         findByJob : findByJob,
+        findByDate : findByDate
     };
 }

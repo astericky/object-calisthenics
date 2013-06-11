@@ -69,7 +69,7 @@ describe('Job Board', function() {
     allJobApplications.submit(jobApplication);
     allJobApplications.submit(differentJobApplication);
     allJobApplications.submit(jobApplicationWithResume);
-    allJobApplications.submit(differentJobApplicationWithResume);
+    //allJobApplications.submit(differentJobApplicationWithResume);
 
     // does not submit
     allJobApplications.submit(anotherJobApplication);
@@ -115,14 +115,16 @@ describe('Job Board', function() {
         });
 
         xit('should be able to see jobseekers who have applied to their jobs by day', function() {
-            var expected = 'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean';
+            var expected = [
+                'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean',
+            ];
             expect(allJobApplications.applicantsByDate().equals(applicants)).toEqual(true);
         });
 
         it('should be able to see jobseekers who have applied to a given job on a given day', function() {
-            var expected = '';
+            var expected = 'Chris Web Developer Thu May 30 2013 00:00:00 GMT-0400 (EDT) Sean';
             var applicationsByJob = allJobApplications.findByJob(job);
-            var applicationsByDate = applicationsByJob.findByDate(anotherDate);
+            var applicationsByDate = applicationsByJob.findByDate(date).displayOn(applicationDisplay);
             var actual = applicationsByDate.join('');
             expect(expected).toEqual(actual);
         });

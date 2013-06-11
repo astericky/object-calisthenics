@@ -39,6 +39,10 @@ function AllJobApplications() {
         return select(selectByJob(job));
     }
 
+    function findByDate(date) {
+        return select(selectByDate(date));
+    }
+
     function selectByRecruiter(recruiter) {
         return function (application) {
             return application.isRecruiterEqual(recruiter);
